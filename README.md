@@ -1,57 +1,43 @@
 # arctis/ui
 
-React components for Arctis. Source you own — copy into your app or install when the package is published.
+A starting point for your design system.
 
-Docs and demos live in the [ui.arctis](https://github.com/arctisv/ui.arctis) site. This repo is **UI only**.
+React components for Arctis. Docs: [ui.arctis](https://github.com/arctisv/ui.arctis) · Source: [arctis-sh/ui](https://github.com/arctis-sh/ui)
 
-## What’s included
+## Install
 
-- `src/components/ui` — components
-- `src/lib` — `cn` helper and overlay/menu hooks
-- `src/styles/typeset.css` — Typeset (prose for HTML / markdown)
-
-## Stack
-
-- React 19
-- Tailwind CSS v4 (utility classes + CSS variables)
-- [Base UI](https://base-ui.com) where noted in components
-
-## Theme
-
-Components expect your app to define the usual tokens (`--background`, `--foreground`, `--muted`, `--border`, `--primary`, `--radius`, etc.). Bring your own `globals.css` / theme — this repo does not ship a full docs theme.
-
-## Usage (source)
-
-Point your aliases at this tree (same layout as the docs site):
-
-```ts
-// tsconfig paths (example)
-{
-  "paths": {
-    "@/components/ui/*": ["./src/components/ui/*"],
-    "@/lib/*": ["./src/lib/*"]
-  }
-}
+```bash
+npm i @arctis-sh/ui
 ```
+
+Peer deps: `react`, `react-dom` (^19). Tailwind CSS v4 in your app.
+
+## Usage
 
 ```tsx
-import { Button } from "@/components/ui/button"
+import { Button } from "@arctis-sh/ui/button"
 ```
 
-Import Typeset after Tailwind:
+Point Tailwind at the package so utilities are generated (Tailwind v4):
 
 ```css
 @import "tailwindcss";
-@import "./styles/typeset.css";
+@source "../node_modules/@arctis-sh/ui/dist";
+```
+
+Typeset:
+
+```css
+@import "@arctis-sh/ui/styles/typeset.css";
 ```
 
 ```tsx
 <div className="typeset typeset-docs">{html}</div>
 ```
 
-## npm
+## Theme
 
-Package publish is planned (`@arctis-sh/ui`). Until then, use this repo as source.
+Define tokens in your app (`--background`, `--foreground`, `--muted`, `--border`, `--primary`, `--radius`, etc.).
 
 ## License
 
