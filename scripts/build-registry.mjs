@@ -7,16 +7,8 @@ const root = path.resolve(__dirname, "..");
 const outDir = path.join(root, "registry");
 const uiDir = path.join(root, "src", "components", "ui");
 const libDir = path.join(root, "src", "lib");
-const blocksRoot = path.resolve(root, "..", "ui.arctis", "src", "components", "blocks");
-const brandLogo = path.resolve(
-  root,
-  "..",
-  "ui.arctis",
-  "src",
-  "components",
-  "brand",
-  "logo.tsx",
-);
+const blocksRoot = path.join(root, "src", "components", "blocks");
+const brandLogo = path.join(root, "src", "components", "brand", "logo.tsx");
 
 const NPM_PACKAGES = new Set([
   "@base-ui/react",
@@ -175,7 +167,7 @@ for (const file of fs.readdirSync(uiDir).filter((f) => f.endsWith(".tsx"))) {
   index.push({ name, type: item.type });
 }
 
-// blocks from docs repo
+// blocks
 if (fs.existsSync(blocksRoot)) {
   for (const category of fs.readdirSync(blocksRoot, { withFileTypes: true })) {
     if (!category.isDirectory()) continue;
