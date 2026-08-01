@@ -416,7 +416,7 @@ function NavigationMenuContent({
       data-side={placement.side}
       style={{ ...style, ...coords }}
       className={cn(
-        "arctis-overlay fixed z-50 box-border min-w-0 overflow-auto rounded-md border border-foreground/10 bg-surface p-1 text-foreground",
+        "arctis-overlay fixed z-[70] box-border min-w-0 overflow-auto rounded-md border border-foreground/10 bg-surface p-1 text-foreground",
         placement.side === "bottom" &&
           placement.align === "start" &&
           "origin-top-left",
@@ -474,7 +474,11 @@ function NavigationMenuLink({
   );
 
   if (asChild && isValidElement(children)) {
-    const child = children as ReactElement<{ className?: string }>;
+    const child = children as ReactElement<{
+      className?: string;
+      "data-slot"?: string;
+      "data-active"?: string;
+    }>;
     return cloneElement(child, {
       ...props,
       "data-slot": "navigation-menu-link",

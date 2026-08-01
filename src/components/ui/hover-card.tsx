@@ -196,6 +196,8 @@ function HoverCardTrigger({
   if (asChild && isValidElement(children)) {
     const child = children as ReactElement<{
       className?: string;
+      "data-slot"?: string;
+      "data-state"?: string;
       onMouseEnter?: (event: ReactMouseEvent<HTMLElement>) => void;
       onMouseLeave?: (event: ReactMouseEvent<HTMLElement>) => void;
       onFocus?: (event: ReactFocusEvent<HTMLElement>) => void;

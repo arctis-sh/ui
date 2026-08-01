@@ -160,6 +160,9 @@ function PopoverTrigger({
   if (asChild && isValidElement(children)) {
     const child = children as ReactElement<{
       className?: string;
+      "data-slot"?: string;
+      "aria-expanded"?: boolean;
+      "aria-haspopup"?: "dialog";
       onClick?: (event: ReactMouseEvent<HTMLButtonElement>) => void;
     }>;
     return cloneElement(child, {

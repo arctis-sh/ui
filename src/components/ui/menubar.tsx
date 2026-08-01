@@ -68,13 +68,14 @@ function Menubar({ className, children, ...props }: MenubarProps) {
 
   useEffect(() => {
     if (!openMenuId) return;
+    const menuId = openMenuId;
 
     function onPointerDown(event: PointerEvent) {
       const target = event.target as Node;
       if (barRef.current?.contains(target)) return;
       const selector = [
-        `[data-slot="menubar-content"][data-menu-id="${CSS.escape(openMenuId)}"]`,
-        `[data-slot="menubar-sub-content"][data-menu-id="${CSS.escape(openMenuId)}"]`,
+        `[data-slot="menubar-content"][data-menu-id="${CSS.escape(menuId)}"]`,
+        `[data-slot="menubar-sub-content"][data-menu-id="${CSS.escape(menuId)}"]`,
       ].join(", ");
       const panels = document.querySelectorAll(selector);
       for (const panel of panels) {
