@@ -1,0 +1,19 @@
+{
+  "name": "footer-03",
+  "type": "registry:block",
+  "title": "footer-03",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "logo",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/footer/footer-03.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/footer/footer-03.tsx",
+      "content": "\"use client\";\n\nimport { Logo } from \"@/components/brand\";\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\ntype Footer03Props = {\n  className?: string;\n};\n\nconst LINKS = [\"Blocks\", \"Components\", \"Docs\", \"Pricing\"] as const;\n\nexport function Footer03({ className }: Footer03Props) {\n  return (\n    <footer className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto w-full max-w-5xl px-4 py-10 @[32rem]:px-6 @[32rem]:py-14\">\n        <div className=\"relative min-h-[22rem] overflow-hidden rounded-xl @[32rem]:min-h-[26rem]\">\n          <img\n            src=\"/assets/brand/demos/card-cover.png\"\n            alt=\"\"\n            className=\"absolute inset-0 size-full object-cover\"\n          />\n          <div aria-hidden=\"true\" className=\"absolute inset-0 bg-black/55\" />\n\n          <div className=\"relative z-10 flex h-full min-h-[22rem] flex-col justify-between px-6 py-6 @[32rem]:min-h-[26rem] @[32rem]:px-10 @[32rem]:py-8\">\n            <Logo className=\"block h-4 w-auto self-start text-white\" />\n\n            <div className=\"flex flex-col gap-8\">\n              <div className=\"flex flex-col gap-6 @[40rem]:flex-row @[40rem]:items-end @[40rem]:justify-between\">\n                <div className=\"max-w-md\">\n                  <h2 className=\"text-2xl font-medium tracking-wide text-white @[32rem]:text-3xl\">\n                    Ship pages that feel finished\n                  </h2>\n                  <p className=\"mt-3 text-sm tracking-wide text-white/75\">\n                    Drop in blocks, restyle with your tokens, and keep moving.\n                  </p>\n                </div>\n                <Button type=\"button\" size=\"sm\">\n                  Get started\n                </Button>\n              </div>\n\n              <div className=\"flex flex-col gap-4 border-t border-white/20 pt-6 @[40rem]:flex-row @[40rem]:items-center @[40rem]:justify-between\">\n                <nav className=\"flex flex-wrap gap-x-5 gap-y-2\">\n                  {LINKS.map((link) => (\n                    <a\n                      key={link}\n                      href=\"#\"\n                      className=\"text-sm tracking-wide text-white/80\"\n                    >\n                      {link}\n                    </a>\n                  ))}\n                </nav>\n                <p className=\"text-xs tracking-wide text-white/60\">\n                  © 2026 Arctis. All rights reserved.\n                </p>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </footer>\n  );\n}\n"
+    }
+  ]
+}

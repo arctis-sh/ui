@@ -1,0 +1,17 @@
+{
+  "name": "native-select",
+  "type": "registry:ui",
+  "title": "Native Select",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/native-select.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/native-select.tsx",
+      "content": "import type { ComponentProps } from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ntype NativeSelectProps = Omit<ComponentProps<\"select\">, \"size\"> & {\r\n  size?: \"sm\" | \"default\";\r\n};\r\n\r\nfunction NativeSelect({\r\n  className,\r\n  size = \"default\",\r\n  ...props\r\n}: NativeSelectProps) {\r\n  return (\r\n    <div\r\n      data-slot=\"native-select-wrapper\"\r\n      data-size={size}\r\n      className={cn(\r\n        \"group/native-select relative w-full has-[select:disabled]:opacity-40\",\r\n        className,\r\n      )}\r\n    >\r\n      <select\r\n        data-slot=\"native-select\"\r\n        data-size={size}\r\n        className={cn(\r\n          \"w-full min-w-0 appearance-none rounded-md border border-border bg-muted pr-8 pl-3 text-sm tracking-wide text-foreground transition-colors duration-200 ease-out outline-none disabled:pointer-events-none disabled:cursor-not-allowed aria-invalid:border-destructive aria-invalid:bg-destructive/5\",\r\n          size === \"default\" && \"h-9 py-1\",\r\n          size === \"sm\" && \"h-8 py-0.5\",\r\n        )}\r\n        {...props}\r\n      />\r\n      <ChevronDownIcon\r\n        data-slot=\"native-select-icon\"\r\n        className=\"pointer-events-none absolute top-1/2 right-2.5 size-4 -translate-y-1/2 text-muted-foreground\"\r\n      />\r\n    </div>\r\n  );\r\n}\r\n\r\ntype NativeSelectOptionProps = ComponentProps<\"option\">;\r\n\r\nfunction NativeSelectOption({ className, ...props }: NativeSelectOptionProps) {\r\n  return (\r\n    <option\r\n      data-slot=\"native-select-option\"\r\n      className={cn(\"bg-surface text-foreground\", className)}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\ntype NativeSelectOptGroupProps = ComponentProps<\"optgroup\">;\r\n\r\nfunction NativeSelectOptGroup({\r\n  className,\r\n  ...props\r\n}: NativeSelectOptGroupProps) {\r\n  return (\r\n    <optgroup\r\n      data-slot=\"native-select-optgroup\"\r\n      className={cn(\"bg-surface text-foreground\", className)}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nfunction ChevronDownIcon({\r\n  className,\r\n  ...props\r\n}: ComponentProps<\"svg\">) {\r\n  return (\r\n    <svg\r\n      xmlns=\"http://www.w3.org/2000/svg\"\r\n      viewBox=\"0 0 24 24\"\r\n      fill=\"none\"\r\n      stroke=\"currentColor\"\r\n      strokeWidth=\"2\"\r\n      strokeLinecap=\"round\"\r\n      strokeLinejoin=\"round\"\r\n      aria-hidden\r\n      className={cn(\"size-4\", className)}\r\n      {...props}\r\n    >\r\n      <path d=\"m6 9 6 6 6-6\" />\r\n    </svg>\r\n  );\r\n}\r\n\r\nexport { NativeSelect, NativeSelectOption, NativeSelectOptGroup };\r\n"
+    }
+  ]
+}

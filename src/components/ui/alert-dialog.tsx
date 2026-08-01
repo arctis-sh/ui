@@ -13,6 +13,7 @@ import {
   type ReactNode,
 } from "react";
 import { createPortal } from "react-dom";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useBodyScrollLock } from "@/lib/use-body-scroll-lock";
 import { useOverlayEntered } from "@/lib/use-overlay-entered";
@@ -86,12 +87,10 @@ export function AlertDialogTrigger({
   const { setOpen } = useAlertDialog();
 
   return (
-    <button
+    <Button
       type="button"
-      className={cn(
-        "inline-flex rounded-md bg-primary px-2.5 py-1.5 text-sm font-normal tracking-wide text-primary-foreground transition-opacity duration-200 ease-out hover:opacity-85",
-        className,
-      )}
+      size="sm"
+      className={className}
       onClick={(event) => {
         onClick?.(event);
         if (!event.defaultPrevented) setOpen(true);
@@ -99,7 +98,7 @@ export function AlertDialogTrigger({
       {...props}
     >
       {children}
-    </button>
+    </Button>
   );
 }
 
@@ -300,12 +299,11 @@ export function AlertDialogCancel({
   const { setOpen } = useAlertDialog();
 
   return (
-    <button
+    <Button
       type="button"
-      className={cn(
-        "inline-flex items-center justify-center rounded-sm bg-secondary px-2.5 py-1.5 text-sm font-normal tracking-wide text-secondary-foreground transition-colors duration-200 ease-out hover:bg-accent hover:text-accent-foreground",
-        className,
-      )}
+      variant="secondary"
+      size="sm"
+      className={className}
       onClick={(event) => {
         onClick?.(event);
         if (!event.defaultPrevented) setOpen(false);
@@ -313,7 +311,7 @@ export function AlertDialogCancel({
       {...props}
     >
       {children}
-    </button>
+    </Button>
   );
 }
 
@@ -332,15 +330,11 @@ export function AlertDialogAction({
   const { setOpen } = useAlertDialog();
 
   return (
-    <button
+    <Button
       type="button"
-      className={cn(
-        "inline-flex items-center justify-center rounded-sm px-2.5 py-1.5 text-sm font-normal tracking-wide transition-opacity duration-200 ease-out hover:opacity-85 disabled:pointer-events-none disabled:opacity-40",
-        variant === "destructive"
-          ? "bg-destructive text-destructive-foreground"
-          : "bg-primary text-primary-foreground",
-        className,
-      )}
+      variant={variant}
+      size="sm"
+      className={className}
       onClick={(event) => {
         onClick?.(event);
         if (!event.defaultPrevented) setOpen(false);
@@ -348,6 +342,6 @@ export function AlertDialogAction({
       {...props}
     >
       {children}
-    </button>
+    </Button>
   );
 }

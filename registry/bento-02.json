@@ -1,0 +1,17 @@
+{
+  "name": "bento-02",
+  "type": "registry:block",
+  "title": "bento-02",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/bento/bento-02.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/bento/bento-02.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\n\ntype Bento02Props = {\n  className?: string;\n};\n\nconst CELLS = [\n  {\n    title: \"Token ready\",\n    description: \"Restyle every block with your colors, radii, and type.\",\n    image: \"/assets/brand/demos/attachments/attachment-1.png\",\n    className:\n      \"@[32rem]:col-span-2 @[32rem]:row-span-2 @[48rem]:col-span-2 @[48rem]:row-span-2\",\n  },\n  {\n    title: \"Copy and ship\",\n    description: \"Install a block and drop it into a page.\",\n    image: \"/assets/brand/demos/attachments/attachment-2.png\",\n    className: \"@[32rem]:col-span-2 @[48rem]:col-span-2\",\n  },\n  {\n    title: \"Compose\",\n    description: \"Mix sections freely.\",\n    image: \"/assets/brand/demos/attachments/attachment-3.png\",\n    className: \"@[32rem]:col-span-1 @[48rem]:col-span-1\",\n  },\n  {\n    title: \"Accessible\",\n    description: \"Keyboard-first defaults.\",\n    image: \"/assets/brand/demos/attachments/attachment-4.png\",\n    className: \"@[32rem]:col-span-1 @[48rem]:col-span-1\",\n  },\n  {\n    title: \"Rapid development\",\n    description: \"Ship interfaces that feel finished.\",\n    image: \"/assets/brand/demos/attachments/attachment-5.png\",\n    className: \"@[32rem]:col-span-2 @[48rem]:col-span-2\",\n  },\n  {\n    title: \"Theme sync\",\n    description: \"Light and dark out of the box.\",\n    image: \"/assets/brand/demos/attachments/attachment-2.png\",\n    className: \"@[32rem]:col-span-2 @[48rem]:col-span-2\",\n  },\n] as const;\n\nexport function Bento02({ className }: Bento02Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto w-full max-w-5xl px-4 py-10 @[32rem]:px-6 @[32rem]:py-14\">\n        <ul className=\"grid grid-cols-1 gap-3 @[32rem]:grid-cols-4 @[32rem]:auto-rows-[11rem]\">\n          {CELLS.map((cell) => (\n            <li\n              key={cell.title}\n              className={cn(\n                \"group relative min-h-[12rem] overflow-hidden rounded-xl bg-muted @[32rem]:min-h-0\",\n                cell.className,\n              )}\n            >\n              <img\n                src={cell.image}\n                alt=\"\"\n                className=\"absolute inset-0 size-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]\"\n              />\n              <div\n                aria-hidden=\"true\"\n                className=\"absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent\"\n              />\n              <div className=\"absolute inset-x-0 bottom-0 p-4\">\n                <h3 className=\"text-sm font-medium tracking-wide text-white\">\n                  {cell.title}\n                </h3>\n                <p className=\"mt-1 text-xs tracking-wide text-white/75\">\n                  {cell.description}\n                </p>\n              </div>\n            </li>\n          ))}\n        </ul>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

@@ -2,7 +2,8 @@
 
 import { Toast as ToastPrimitive } from "@base-ui/react/toast";
 import type { ComponentProps, ReactNode } from "react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
 import { cn } from "@/lib/utils";
 
 const toastManager = ToastPrimitive.createToastManager();
@@ -167,7 +168,12 @@ export function ToastClose({
       data-slot="toast-close"
       aria-label="Close"
       className={mergeClass(
-        "inline-flex size-6 shrink-0 items-center justify-center rounded-sm text-foreground/50 transition-colors duration-200 ease-out hover:bg-surface-hover hover:text-foreground",
+        buttonVariants({
+          variant: "ghost",
+          size: "icon-xs",
+          className:
+            "shrink-0 text-foreground/50 hover:bg-surface-hover hover:text-foreground",
+        }),
         className,
       )}
       {...props}
@@ -229,12 +235,7 @@ function ToastIcon({ type }: { type: string | undefined }) {
   }
 
   if (type === "loading") {
-    return (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={cn(className, "animate-spin")}>
-        <circle cx="12" cy="12" r="9" stroke="currentColor" strokeOpacity="0.25" strokeWidth="2" />
-        <path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    );
+    return <Spinner aria-hidden="true" className={className} />;
   }
 
   return null;

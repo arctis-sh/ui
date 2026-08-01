@@ -1,0 +1,18 @@
+{
+  "name": "onboarding-01",
+  "type": "registry:block",
+  "title": "onboarding-01",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/onboarding/onboarding-01.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/onboarding/onboarding-01.tsx",
+      "content": "\"use client\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\ntype Onboarding01Props = {\n  className?: string;\n};\n\nconst HIGHLIGHTS = [\n  \"Invite your team in one click\",\n  \"Start from ready-made blocks\",\n  \"Ship a first page today\",\n] as const;\n\nfunction CheckIcon({ className }: { className?: string }) {\n  return (\n    <svg\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth=\"2\"\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n      aria-hidden=\"true\"\n      className={className}\n    >\n      <path d=\"M5 12.5 10 17.5 19 7\" />\n    </svg>\n  );\n}\n\nexport function Onboarding01({ className }: Onboarding01Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto flex w-full max-w-lg flex-col items-center px-4 py-10 text-center @[32rem]:px-6 @[32rem]:py-14\">\n        <p className=\"text-xs tracking-wide text-muted-foreground\">\n          Welcome to Arctis\n        </p>\n        <h2 className=\"mt-2 text-2xl font-medium tracking-wide text-foreground @[32rem]:text-3xl\">\n          Let’s get your workspace ready\n        </h2>\n        <p className=\"mt-3 text-sm tracking-wide text-muted-foreground\">\n          A short setup so your team can start shipping pages without the blank\n          canvas.\n        </p>\n\n        <ul className=\"mt-8 flex w-full flex-col gap-3 text-left\">\n          {HIGHLIGHTS.map((item) => (\n            <li\n              key={item}\n              className=\"flex items-center gap-3 rounded-xl bg-muted px-4 py-3 text-sm tracking-wide text-foreground\"\n            >\n              <span className=\"flex size-5 shrink-0 items-center justify-center text-foreground [&_svg]:size-3.5\">\n                <CheckIcon />\n              </span>\n              {item}\n            </li>\n          ))}\n        </ul>\n\n        <div className=\"mt-8 flex w-full flex-col gap-2 @[32rem]:flex-row @[32rem]:justify-center\">\n          <Button type=\"button\" size=\"sm\" className=\"w-full @[32rem]:w-auto\">\n            Get started\n          </Button>\n          <Button\n            type=\"button\"\n            size=\"sm\"\n            variant=\"ghost\"\n            className=\"w-full @[32rem]:w-auto\"\n          >\n            Skip for now\n          </Button>\n        </div>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

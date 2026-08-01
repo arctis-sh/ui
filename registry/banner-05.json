@@ -1,0 +1,17 @@
+{
+  "name": "banner-05",
+  "type": "registry:block",
+  "title": "banner-05",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/banner/banner-05.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/banner/banner-05.tsx",
+      "content": "\"use client\";\n\nimport { Button } from \"@/components/ui/button\";\n\nexport function Banner05() {\n  return (\n    <div className=\"@container w-full border-b border-border bg-secondary\">\n      <div className=\"flex w-full flex-col items-center gap-2 px-4 py-2.5 text-center @[32rem]:flex-row @[32rem]:justify-center @[32rem]:gap-3\">\n        <p className=\"text-sm tracking-wide text-secondary-foreground\">\n          Arctis UI v2 is out.{\" \"}\n          <span className=\"text-secondary-foreground/70\">\n            New blocks, tokens, and docs.\n          </span>\n        </p>\n        <Button\n          size=\"sm\"\n          variant=\"ghost\"\n          className=\"h-7 shrink-0 text-secondary-foreground hover:bg-secondary-foreground/10 hover:text-secondary-foreground\"\n        >\n          See what's new\n        </Button>\n      </div>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

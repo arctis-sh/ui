@@ -1,0 +1,19 @@
+{
+  "name": "empty-states-01",
+  "type": "registry:block",
+  "title": "empty-states-01",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "empty",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/empty-states/empty-states-01.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/empty-states/empty-states-01.tsx",
+      "content": "\"use client\";\n\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from \"@/components/ui/empty\";\nimport { cn } from \"@/lib/utils\";\n\ntype EmptyStates01Props = {\n  className?: string;\n};\n\nfunction FolderIcon({ className }: { className?: string }) {\n  return (\n    <svg\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth=\"2\"\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n      aria-hidden=\"true\"\n      className={className}\n    >\n      <path d=\"M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z\" />\n      <path d=\"M12 10v6\" />\n      <path d=\"M9 13h6\" />\n    </svg>\n  );\n}\n\nexport function EmptyStates01({ className }: EmptyStates01Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto flex w-full max-w-3xl items-center justify-center px-4 py-10 @[32rem]:px-6 @[32rem]:py-14\">\n        <Empty className=\"w-full border border-dashed border-border\">\n          <EmptyHeader>\n            <EmptyMedia variant=\"icon\">\n              <FolderIcon />\n            </EmptyMedia>\n            <EmptyTitle>No projects yet</EmptyTitle>\n            <EmptyDescription>\n              Create your first project to start shipping blocks and pages.\n            </EmptyDescription>\n          </EmptyHeader>\n          <EmptyContent>\n            <div className=\"flex flex-wrap items-center justify-center gap-2\">\n              <Button type=\"button\" size=\"sm\">\n                Create project\n              </Button>\n              <Button type=\"button\" size=\"sm\" variant=\"secondary\">\n                Import\n              </Button>\n            </div>\n          </EmptyContent>\n        </Empty>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

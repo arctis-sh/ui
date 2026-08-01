@@ -1,0 +1,18 @@
+{
+  "name": "features-02",
+  "type": "registry:block",
+  "title": "features-02",
+  "dependencies": [],
+  "registryDependencies": [
+    "accordion",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/features/features-02.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/features/features-02.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from \"@/components/ui/accordion\";\nimport { cn } from \"@/lib/utils\";\n\ntype Features02Props = {\n  className?: string;\n};\n\nconst FEATURES = [\n  {\n    value: \"1\",\n    title: \"Token ready\",\n    description: \"Restyle every block with your colors, radii, and type.\",\n    image: \"/assets/brand/demos/attachments/attachment-1.png\",\n  },\n  {\n    value: \"2\",\n    title: \"Copy and ship\",\n    description: \"Install a block, drop it in a page, and keep moving.\",\n    image: \"/assets/brand/demos/attachments/attachment-2.png\",\n  },\n  {\n    value: \"3\",\n    title: \"Built to compose\",\n    description: \"Mix heroes, nav, and sections without fighting the layout.\",\n    image: \"/assets/brand/demos/attachments/attachment-3.png\",\n  },\n] as const;\n\nexport function Features02({ className }: Features02Props) {\n  const [open, setOpen] = useState(\"1\");\n  const index = Math.max(\n    0,\n    FEATURES.findIndex((feature) => feature.value === open),\n  );\n\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div\n        data-slot=\"block-split\"\n        className=\"mx-auto flex w-full max-w-4xl flex-col gap-6 px-6 py-14 lg:flex-row lg:items-stretch lg:gap-10\"\n      >\n        <div className=\"flex min-w-0 flex-1 flex-col justify-center\">\n          <Accordion\n            type=\"single\"\n            collapsible={false}\n            value={open}\n            onValueChange={(value) => {\n              if (typeof value === \"string\" && value) setOpen(value);\n            }}\n          >\n            {FEATURES.map((feature) => (\n              <AccordionItem key={feature.value} value={feature.value}>\n                <AccordionTrigger indicator=\"plus\">\n                  {feature.title}\n                </AccordionTrigger>\n                <AccordionContent>{feature.description}</AccordionContent>\n              </AccordionItem>\n            ))}\n          </Accordion>\n        </div>\n\n        <div className=\"relative min-h-[16rem] flex-1 overflow-hidden rounded-md bg-muted lg:min-h-[20rem]\">\n          <div\n            className=\"absolute inset-x-0 top-0 w-full will-change-transform transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]\"\n            style={{\n              height: `${FEATURES.length * 100}%`,\n              transform: `translate3d(0, -${(index * 100) / FEATURES.length}%, 0)`,\n            }}\n          >\n            {FEATURES.map((feature) => (\n              <div\n                key={feature.value}\n                className=\"w-full\"\n                style={{ height: `${100 / FEATURES.length}%` }}\n              >\n                <img\n                  src={feature.image}\n                  alt=\"\"\n                  className=\"size-full object-cover\"\n                />\n              </div>\n            ))}\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

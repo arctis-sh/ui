@@ -16,6 +16,7 @@ import {
   type ReactNode,
 } from "react";
 import { createPortal } from "react-dom";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useBodyScrollLock } from "@/lib/use-body-scroll-lock";
 import { useOverlayEntered } from "@/lib/use-overlay-entered";
@@ -635,13 +636,11 @@ export function CommandDialogTrigger({
   const { setOpen } = useCommandDialog();
 
   return (
-    <button
+    <Button
       type="button"
+      size="sm"
       data-slot="command-dialog-trigger"
-      className={cn(
-        "inline-flex rounded-md bg-primary px-2.5 py-1.5 text-sm font-normal tracking-wide text-primary-foreground transition-opacity duration-200 ease-out hover:opacity-85",
-        className,
-      )}
+      className={className}
       onClick={(event) => {
         onClick?.(event);
         if (!event.defaultPrevented) setOpen(true);
@@ -649,7 +648,7 @@ export function CommandDialogTrigger({
       {...props}
     >
       {children}
-    </button>
+    </Button>
   );
 }
 

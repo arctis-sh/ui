@@ -1,0 +1,17 @@
+{
+  "name": "team-01",
+  "type": "registry:block",
+  "title": "team-01",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/team/team-01.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/team/team-01.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\n\ntype Team01Props = {\n  className?: string;\n};\n\nconst MEMBERS = [\n  {\n    name: \"Maya Chen\",\n    role: \"CEO\",\n    avatar: \"/assets/brand/demos/avatars/avatar-1.png\",\n  },\n  {\n    name: \"Jordan Hale\",\n    role: \"Design\",\n    avatar: \"/assets/brand/demos/avatars/avatar-2.png\",\n  },\n  {\n    name: \"Priya Nair\",\n    role: \"Engineering\",\n    avatar: \"/assets/brand/demos/avatars/avatar-3.png\",\n  },\n  {\n    name: \"Chris Ortega\",\n    role: \"Product\",\n    avatar: \"/assets/brand/demos/avatars/avatar-4.png\",\n  },\n  {\n    name: \"Sam Okonkwo\",\n    role: \"Marketing\",\n    avatar: \"/assets/brand/demos/avatars/avatar-5.png\",\n  },\n  {\n    name: \"Elena Voss\",\n    role: \"Support\",\n    avatar: \"/assets/brand/demos/avatars/avatar-6.png\",\n  },\n] as const;\n\nexport function Team01({ className }: Team01Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto w-full max-w-4xl px-4 py-10 @[32rem]:px-6 @[32rem]:py-14\">\n        <div className=\"mx-auto max-w-md text-center\">\n          <h2 className=\"text-xl font-medium tracking-wide text-foreground @[32rem]:text-2xl\">\n            Meet the team\n          </h2>\n          <p className=\"mt-2 text-sm tracking-wide text-muted-foreground\">\n            The people shipping blocks, tokens, and docs every week.\n          </p>\n        </div>\n        <ul className=\"mt-8 grid grid-cols-2 gap-x-4 gap-y-8 @[32rem]:grid-cols-3 @[40rem]:grid-cols-6\">\n          {MEMBERS.map((member) => (\n            <li key={member.name} className=\"flex flex-col items-center text-center\">\n              <img\n                src={member.avatar}\n                alt=\"\"\n                className=\"size-16 rounded-full object-cover @[32rem]:size-[4.5rem]\"\n              />\n              <p className=\"mt-3 text-sm font-medium tracking-wide text-foreground\">\n                {member.name}\n              </p>\n              <p className=\"mt-0.5 text-xs tracking-wide text-muted-foreground\">\n                {member.role}\n              </p>\n            </li>\n          ))}\n        </ul>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "onboarding-03",
+  "type": "registry:block",
+  "title": "onboarding-03",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "checkbox",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/onboarding/onboarding-03.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/onboarding/onboarding-03.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { Button } from \"@/components/ui/button\";\nimport { Checkbox } from \"@/components/ui/checkbox\";\nimport { cn } from \"@/lib/utils\";\n\ntype Onboarding03Props = {\n  className?: string;\n};\n\nconst GOALS = [\n  { id: \"landing\", label: \"Landing pages\", detail: \"Hero, features, pricing\" },\n  { id: \"app\", label: \"App UI\", detail: \"Dashboards and settings\" },\n  { id: \"docs\", label: \"Docs site\", detail: \"Guides and API reference\" },\n  { id: \"marketing\", label: \"Campaigns\", detail: \"Banners, CTAs, emails\" },\n] as const;\n\nexport function Onboarding03({ className }: Onboarding03Props) {\n  const [selected, setSelected] = useState<string[]>([\"landing\"]);\n\n  function toggle(id: string) {\n    setSelected((current) =>\n      current.includes(id)\n        ? current.filter((value) => value !== id)\n        : [...current, id],\n    );\n  }\n\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div\n        data-slot=\"block-split\"\n        className=\"mx-auto grid w-full max-w-4xl gap-10 px-4 py-10 @[40rem]:grid-cols-2 @[40rem]:items-start @[40rem]:gap-12 @[40rem]:px-6 @[40rem]:py-14\"\n      >\n        <div>\n          <p className=\"text-xs tracking-wide text-muted-foreground\">\n            Almost done\n          </p>\n          <h2 className=\"mt-2 text-xl font-medium tracking-wide text-foreground @[32rem]:text-2xl\">\n            What are you building first?\n          </h2>\n          <p className=\"mt-2 text-sm tracking-wide text-muted-foreground\">\n            Pick a few goals so we can suggest the right blocks. You can change\n            this later.\n          </p>\n          <p className=\"mt-6 text-sm tracking-wide text-muted-foreground\">\n            {selected.length} selected\n          </p>\n        </div>\n\n        <div>\n          <ul className=\"flex flex-col gap-2\">\n            {GOALS.map((goal) => {\n              const checked = selected.includes(goal.id);\n              const inputId = `onboarding-03-${goal.id}`;\n\n              return (\n                <li key={goal.id}>\n                  <div className=\"flex items-center gap-3 rounded-xl bg-muted px-3 py-3\">\n                    <Checkbox\n                      id={inputId}\n                      checked={checked}\n                      onCheckedChange={() => toggle(goal.id)}\n                    />\n                    <label htmlFor={inputId} className=\"min-w-0 flex-1 cursor-pointer\">\n                      <span className=\"block text-sm font-medium tracking-wide text-foreground\">\n                        {goal.label}\n                      </span>\n                      <span className=\"block text-xs tracking-wide text-muted-foreground\">\n                        {goal.detail}\n                      </span>\n                    </label>\n                  </div>\n                </li>\n              );\n            })}\n          </ul>\n\n          <div className=\"mt-6 flex flex-wrap gap-2\">\n            <Button type=\"button\" size=\"sm\" disabled={selected.length === 0}>\n              Continue\n            </Button>\n            <Button type=\"button\" size=\"sm\" variant=\"ghost\">\n              Skip\n            </Button>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

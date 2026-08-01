@@ -1,0 +1,18 @@
+{
+  "name": "footer-02",
+  "type": "registry:block",
+  "title": "footer-02",
+  "dependencies": [],
+  "registryDependencies": [
+    "logo",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/footer/footer-02.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/footer/footer-02.tsx",
+      "content": "\"use client\";\n\nimport { Logo } from \"@/components/brand\";\nimport { cn } from \"@/lib/utils\";\n\ntype Footer02Props = {\n  className?: string;\n};\n\nconst LINKS = [\"Product\", \"Docs\", \"Pricing\", \"Blog\", \"Contact\"] as const;\n\nexport function Footer02({ className }: Footer02Props) {\n  return (\n    <footer className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto flex w-full max-w-3xl flex-col items-center gap-6 px-4 py-10 text-center @[32rem]:px-6 @[32rem]:py-14\">\n        <Logo className=\"block h-4 w-auto text-foreground\" />\n        <nav className=\"flex flex-wrap items-center justify-center gap-x-5 gap-y-2\">\n          {LINKS.map((link) => (\n            <a\n              key={link}\n              href=\"#\"\n              className=\"text-sm tracking-wide text-muted-foreground\"\n            >\n              {link}\n            </a>\n          ))}\n        </nav>\n        <p className=\"text-xs tracking-wide text-muted-foreground\">\n          © 2026 Arctis · Built for teams that ship UI\n        </p>\n      </div>\n    </footer>\n  );\n}\n"
+    }
+  ]
+}

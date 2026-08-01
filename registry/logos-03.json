@@ -1,0 +1,17 @@
+{
+  "name": "logos-03",
+  "type": "registry:block",
+  "title": "logos-03",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/logos/logos-03.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/logos/logos-03.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\n\ntype Logos03Props = {\n  className?: string;\n};\n\nconst LOGOS = [\n  { src: \"/assets/icons/logos/slack.svg\", alt: \"Slack\" },\n  { src: \"/assets/icons/logos/notion.svg\", alt: \"Notion\" },\n  { src: \"/assets/icons/logos/linear.svg\", alt: \"Linear\" },\n  { src: \"/assets/icons/logos/github.svg\", alt: \"GitHub\" },\n  { src: \"/assets/icons/logos/figma.svg\", alt: \"Figma\" },\n  { src: \"/assets/icons/logos/stripe.svg\", alt: \"Stripe\" },\n  { src: \"/assets/icons/logos/intercom.svg\", alt: \"Intercom\" },\n  { src: \"/assets/icons/logos/airtable.svg\", alt: \"Airtable\" },\n  { src: \"/assets/icons/logos/hubspot.svg\", alt: \"HubSpot\" },\n  { src: \"/assets/icons/logos/asana.svg\", alt: \"Asana\" },\n  { src: \"/assets/icons/logos/dropbox.svg\", alt: \"Dropbox\" },\n  { src: \"/assets/icons/logos/snowflake.svg\", alt: \"Snowflake\" },\n] as const;\n\nexport function Logos03({ className }: Logos03Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto flex w-full max-w-3xl flex-col items-center gap-6 px-4 py-10 @[32rem]:px-6 @[32rem]:py-12\">\n        <p className=\"text-xs tracking-wide text-muted-foreground\">\n          Trusted by companies everywhere\n        </p>\n        <ul className=\"grid w-full grid-cols-3 gap-x-6 gap-y-8 @[28rem]:grid-cols-4 @[40rem]:grid-cols-6\">\n          {LOGOS.map((logo) => (\n            <li key={logo.src} className=\"flex items-center justify-center\">\n              <img\n                src={logo.src}\n                alt={logo.alt}\n                className=\"h-5 w-auto object-contain opacity-70 brightness-0 @[32rem]:h-6 dark:invert\"\n              />\n            </li>\n          ))}\n        </ul>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

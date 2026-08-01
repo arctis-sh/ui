@@ -1,0 +1,21 @@
+{
+  "name": "contact-01",
+  "type": "registry:block",
+  "title": "contact-01",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "input",
+    "label",
+    "textarea",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/contact/contact-01.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/contact/contact-01.tsx",
+      "content": "\"use client\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { Input } from \"@/components/ui/input\";\nimport { Label } from \"@/components/ui/label\";\nimport { Textarea } from \"@/components/ui/textarea\";\nimport { cn } from \"@/lib/utils\";\n\ntype Contact01Props = {\n  className?: string;\n};\n\nexport function Contact01({ className }: Contact01Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto w-full max-w-md px-4 py-10 @[32rem]:px-6 @[32rem]:py-14\">\n        <div className=\"text-center\">\n          <h2 className=\"text-xl font-medium tracking-wide text-foreground @[32rem]:text-2xl\">\n            Get in touch\n          </h2>\n          <p className=\"mt-2 text-sm tracking-wide text-muted-foreground\">\n            Tell us what you’re building — we’ll get back within a day.\n          </p>\n        </div>\n        <form\n          className=\"mt-8 flex flex-col gap-4\"\n          onSubmit={(event) => event.preventDefault()}\n        >\n          <div className=\"flex flex-col gap-1.5\">\n            <Label htmlFor=\"contact-01-name\">Name</Label>\n            <Input\n              id=\"contact-01-name\"\n              name=\"name\"\n              placeholder=\"Maya Chen\"\n              className=\"border-0 bg-muted\"\n            />\n          </div>\n          <div className=\"flex flex-col gap-1.5\">\n            <Label htmlFor=\"contact-01-email\">Email</Label>\n            <Input\n              id=\"contact-01-email\"\n              name=\"email\"\n              type=\"email\"\n              placeholder=\"maya@northline.com\"\n              className=\"border-0 bg-muted\"\n            />\n          </div>\n          <div className=\"flex flex-col gap-1.5\">\n            <Label htmlFor=\"contact-01-message\">Message</Label>\n            <Textarea\n              id=\"contact-01-message\"\n              name=\"message\"\n              placeholder=\"How can we help?\"\n              className=\"min-h-28 max-h-48 resize-y border-0 bg-muted\"\n            />\n          </div>\n          <Button type=\"submit\" size=\"sm\" className=\"w-full\">\n            Send message\n          </Button>\n        </form>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,560 @@
+{
+  "items": [
+    {
+      "name": "accordion",
+      "type": "registry:ui"
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui"
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui"
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:ui"
+    },
+    {
+      "name": "attachment",
+      "type": "registry:ui"
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui"
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui"
+    },
+    {
+      "name": "banner-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "banner-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "banner-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "banner-04",
+      "type": "registry:block"
+    },
+    {
+      "name": "banner-05",
+      "type": "registry:block"
+    },
+    {
+      "name": "bento-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "bento-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "bento-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "blog-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "blog-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "blog-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui"
+    },
+    {
+      "name": "bubble",
+      "type": "registry:ui"
+    },
+    {
+      "name": "button",
+      "type": "registry:ui"
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui"
+    },
+    {
+      "name": "card",
+      "type": "registry:ui"
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui"
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui"
+    },
+    {
+      "name": "checkout-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "checkout-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "checkout-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui"
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui"
+    },
+    {
+      "name": "command",
+      "type": "registry:ui"
+    },
+    {
+      "name": "contact-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "contact-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "contact-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui"
+    },
+    {
+      "name": "cta-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "cta-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "cta-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui"
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui"
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui"
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui"
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui"
+    },
+    {
+      "name": "empty-states-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "empty-states-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "empty-states-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "faq-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "faq-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "faq-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "features-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "features-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "features-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "features-04",
+      "type": "registry:block"
+    },
+    {
+      "name": "field",
+      "type": "registry:ui"
+    },
+    {
+      "name": "file-upload-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "file-upload-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "file-upload-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "footer-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "footer-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "footer-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "gallery-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "gallery-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "gallery-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "hero-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "hero-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "hero-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "hero-04",
+      "type": "registry:block"
+    },
+    {
+      "name": "hero-05",
+      "type": "registry:block"
+    },
+    {
+      "name": "hero-06",
+      "type": "registry:block"
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui"
+    },
+    {
+      "name": "input",
+      "type": "registry:ui"
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui"
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui"
+    },
+    {
+      "name": "item",
+      "type": "registry:ui"
+    },
+    {
+      "name": "kanban-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "kanban-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "kanban-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui"
+    },
+    {
+      "name": "label",
+      "type": "registry:ui"
+    },
+    {
+      "name": "login-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "login-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "login-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "logo",
+      "type": "registry:component"
+    },
+    {
+      "name": "logos-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "logos-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "logos-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "marker",
+      "type": "registry:ui"
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui"
+    },
+    {
+      "name": "message",
+      "type": "registry:ui"
+    },
+    {
+      "name": "native-select",
+      "type": "registry:ui"
+    },
+    {
+      "name": "navbar-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "navbar-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "navbar-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "navbar-04",
+      "type": "registry:block"
+    },
+    {
+      "name": "navbar-05",
+      "type": "registry:block"
+    },
+    {
+      "name": "navbar-06",
+      "type": "registry:block"
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui"
+    },
+    {
+      "name": "onboarding-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "onboarding-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "onboarding-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui"
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui"
+    },
+    {
+      "name": "pricing-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "pricing-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "pricing-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui"
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui"
+    },
+    {
+      "name": "resizable",
+      "type": "registry:ui"
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui"
+    },
+    {
+      "name": "select",
+      "type": "registry:ui"
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui"
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui"
+    },
+    {
+      "name": "signup-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "signup-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "signup-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui"
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui"
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui"
+    },
+    {
+      "name": "stats-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "stats-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "stats-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui"
+    },
+    {
+      "name": "table",
+      "type": "registry:ui"
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui"
+    },
+    {
+      "name": "team-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "team-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "team-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "testimonials-01",
+      "type": "registry:block"
+    },
+    {
+      "name": "testimonials-02",
+      "type": "registry:block"
+    },
+    {
+      "name": "testimonials-03",
+      "type": "registry:block"
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui"
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui"
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui"
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui"
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui"
+    },
+    {
+      "name": "use-body-scroll-lock",
+      "type": "registry:hook"
+    },
+    {
+      "name": "use-overlay-entered",
+      "type": "registry:hook"
+    },
+    {
+      "name": "use-submenu-position",
+      "type": "registry:hook"
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib"
+    }
+  ]
+}

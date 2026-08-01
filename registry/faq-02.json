@@ -1,0 +1,18 @@
+{
+  "name": "faq-02",
+  "type": "registry:block",
+  "title": "faq-02",
+  "dependencies": [],
+  "registryDependencies": [
+    "accordion",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/faq/faq-02.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/faq/faq-02.tsx",
+      "content": "\"use client\";\n\nimport {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from \"@/components/ui/accordion\";\nimport { cn } from \"@/lib/utils\";\n\ntype Faq02Props = {\n  className?: string;\n};\n\nconst FAQS = [\n  {\n    value: \"1\",\n    question: \"What’s included when I add a block?\",\n    answer:\n      \"You get the React component and its local dependencies. Swap the copy, media, and links for your product.\",\n  },\n  {\n    value: \"2\",\n    question: \"Do I need a design file?\",\n    answer:\n      \"No. Blocks ship production-ready. Tweak spacing and tokens in code if you want them tighter or louder.\",\n  },\n  {\n    value: \"3\",\n    question: \"Can my team use these commercially?\",\n    answer:\n      \"Yes — use them in client work and products. Keep the install path and attribution wherever your license requires.\",\n  },\n  {\n    value: \"4\",\n    question: \"How often are new blocks added?\",\n    answer:\n      \"We ship in small batches — marketing first, then app surfaces. Check the blocks index for what’s live.\",\n  },\n] as const;\n\nexport function Faq02({ className }: Faq02Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto w-full max-w-4xl px-4 py-10 @[32rem]:px-6 @[32rem]:py-14\">\n        <div\n          data-slot=\"block-split\"\n          className=\"flex flex-col gap-8 rounded-xl bg-muted p-5 @[40rem]:flex-row @[40rem]:gap-10 @[40rem]:p-8\"\n        >\n          <div className=\"max-w-xs shrink-0\">\n            <h2 className=\"text-xl font-medium tracking-wide text-foreground @[32rem]:text-2xl\">\n              Questions & answers\n            </h2>\n            <p className=\"mt-2 text-sm tracking-wide text-muted-foreground\">\n              Still stuck? Reach out and we’ll point you at the right block or\n              pattern.\n            </p>\n          </div>\n          <Accordion type=\"single\" collapsible className=\"min-w-0 flex-1\">\n            {FAQS.map((faq) => (\n              <AccordionItem key={faq.value} value={faq.value}>\n                <AccordionTrigger indicator=\"plus\">\n                  {faq.question}\n                </AccordionTrigger>\n                <AccordionContent>{faq.answer}</AccordionContent>\n              </AccordionItem>\n            ))}\n          </Accordion>\n        </div>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

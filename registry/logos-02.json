@@ -1,0 +1,17 @@
+{
+  "name": "logos-02",
+  "type": "registry:block",
+  "title": "logos-02",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/logos/logos-02.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/logos/logos-02.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\n\ntype Logos02Props = {\n  className?: string;\n};\n\nconst LOGOS = [\n  \"slack\",\n  \"notion\",\n  \"linear\",\n  \"github\",\n  \"figma\",\n  \"stripe\",\n  \"intercom\",\n  \"airtable\",\n  \"hubspot\",\n  \"asana\",\n] as const;\n\nexport function Logos02({ className }: Logos02Props) {\n  const track = [...LOGOS, ...LOGOS, ...LOGOS];\n\n  return (\n    <section className={cn(\"w-full overflow-hidden bg-background\", className)}>\n      <style>{`\n        @keyframes logos-02-scroll {\n          from { transform: translateX(0); }\n          to { transform: translateX(-33.333%); }\n        }\n      `}</style>\n      <div className=\"flex w-full flex-col gap-5 py-10\">\n        <p className=\"px-6 text-left text-xs tracking-wide text-muted-foreground\">\n          Trusted by companies everywhere\n        </p>\n        <div className=\"w-full overflow-hidden\" aria-hidden=\"true\">\n          <div\n            className=\"flex w-max items-center\"\n            style={{ animation: \"logos-02-scroll 28s linear infinite\" }}\n          >\n            {track.map((name, i) => (\n              <img\n                key={`${name}-${i}`}\n                src={`/assets/icons/logos/${name}.svg`}\n                alt=\"\"\n                className=\"mr-10 h-5 w-auto shrink-0 object-contain opacity-70 brightness-0 sm:mr-12 sm:h-6 dark:invert\"\n              />\n            ))}\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

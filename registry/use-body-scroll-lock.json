@@ -1,0 +1,15 @@
+{
+  "name": "use-body-scroll-lock",
+  "type": "registry:hook",
+  "title": "use-body-scroll-lock",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "lib/use-body-scroll-lock.ts",
+      "type": "registry:hook",
+      "target": "lib/use-body-scroll-lock.ts",
+      "content": "\"use client\";\r\n\r\nimport { useEffect } from \"react\";\r\n\r\nlet locks = 0;\r\nlet previousOverflow = \"\";\r\n\r\nfunction acquire() {\r\n  if (typeof document === \"undefined\") return;\r\n  if (locks === 0) {\r\n    previousOverflow = document.body.style.overflow;\r\n    document.body.style.overflow = \"hidden\";\r\n  }\r\n  locks += 1;\r\n}\r\n\r\nfunction release() {\r\n  if (typeof document === \"undefined\") return;\r\n  locks = Math.max(0, locks - 1);\r\n  if (locks === 0) {\r\n    document.body.style.overflow = previousOverflow;\r\n  }\r\n}\r\n\r\n/** Locks document scroll while `locked` is true. Nested callers share one lock. */\r\nexport function useBodyScrollLock(locked: boolean) {\r\n  useEffect(() => {\r\n    if (!locked) return;\r\n    acquire();\r\n    return () => release();\r\n  }, [locked]);\r\n}\r\n"
+    }
+  ]
+}

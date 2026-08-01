@@ -1,0 +1,17 @@
+{
+  "name": "badge",
+  "type": "registry:ui",
+  "title": "Badge",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/badge.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/badge.tsx",
+      "content": "import type { HTMLAttributes, ReactNode } from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ntype BadgeVariant =\r\n  | \"default\"\r\n  | \"secondary\"\r\n  | \"destructive\"\r\n  | \"outline\"\r\n  | \"ghost\";\r\n\r\ntype BadgeProps = HTMLAttributes<HTMLSpanElement> & {\r\n  variant?: BadgeVariant;\r\n  children: ReactNode;\r\n};\r\n\r\nconst variantClass: Record<BadgeVariant, string> = {\r\n  default: \"border-transparent bg-primary text-primary-foreground\",\r\n  secondary:\r\n    \"border-transparent bg-secondary text-secondary-foreground\",\r\n  destructive:\r\n    \"border-transparent bg-destructive text-destructive-foreground\",\r\n  outline: \"border-border bg-transparent text-foreground\",\r\n  ghost:\r\n    \"border-transparent bg-transparent text-muted-foreground hover:bg-accent hover:text-accent-foreground\",\r\n};\r\n\r\nexport function Badge({\r\n  variant = \"default\",\r\n  className,\r\n  children,\r\n  ...props\r\n}: BadgeProps) {\r\n  const hasBgOverride = /(?:^|\\s)(?:!)?bg-/.test(className ?? \"\");\r\n\r\n  return (\r\n    <span\r\n      data-slot=\"badge\"\r\n      data-variant={variant}\r\n      className={cn(\r\n        \"inline-flex h-5 w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-md border px-2 text-[11px] font-medium tracking-wide whitespace-nowrap\",\r\n        \"has-[[data-icon=inline-start]]:pl-1.5 has-[[data-icon=inline-end]]:pr-1.5\",\r\n        \"[&>svg]:pointer-events-none [&>svg]:size-3\",\r\n        hasBgOverride ? \"border-transparent\" : variantClass[variant],\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </span>\r\n  );\r\n}\r\n"
+    }
+  ]
+}

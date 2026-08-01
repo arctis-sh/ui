@@ -1,0 +1,17 @@
+{
+  "name": "logos-01",
+  "type": "registry:block",
+  "title": "logos-01",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/logos/logos-01.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/logos/logos-01.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\n\ntype Logos01Props = {\n  className?: string;\n};\n\nconst LOGOS = [\n  { src: \"/assets/icons/logos/slack.svg\", alt: \"Slack\" },\n  { src: \"/assets/icons/logos/notion.svg\", alt: \"Notion\" },\n  { src: \"/assets/icons/logos/linear.svg\", alt: \"Linear\" },\n  { src: \"/assets/icons/logos/github.svg\", alt: \"GitHub\" },\n  { src: \"/assets/icons/logos/figma.svg\", alt: \"Figma\" },\n  { src: \"/assets/icons/logos/stripe.svg\", alt: \"Stripe\" },\n] as const;\n\nexport function Logos01({ className }: Logos01Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto flex w-full max-w-3xl flex-col items-center gap-5 px-4 py-10 @[32rem]:gap-6 @[32rem]:px-6 @[32rem]:py-12\">\n        <p className=\"text-xs tracking-wide text-muted-foreground\">\n          Trusted by teams everywhere\n        </p>\n        <ul className=\"flex flex-nowrap items-center justify-center gap-x-4 @[32rem]:gap-x-8\">\n          {LOGOS.map((logo) => (\n            <li key={logo.src} className=\"flex items-center\">\n              <img\n                src={logo.src}\n                alt={logo.alt}\n                className=\"h-4 w-auto object-contain opacity-70 brightness-0 @[32rem]:h-6 dark:invert\"\n              />\n            </li>\n          ))}\n        </ul>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

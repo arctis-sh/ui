@@ -1,0 +1,17 @@
+{
+  "name": "features-03",
+  "type": "registry:block",
+  "title": "features-03",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/features/features-03.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/features/features-03.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\n\ntype Features03Props = {\n  className?: string;\n};\n\nconst FEATURES = [\n  {\n    title: \"Token ready\",\n    description: \"Restyle every block with your colors, radii, and type.\",\n    image: \"/assets/brand/demos/attachments/attachment-1.png\",\n  },\n  {\n    title: \"Copy and ship\",\n    description: \"Install a block, drop it in a page, and keep moving.\",\n    image: \"/assets/brand/demos/attachments/attachment-2.png\",\n  },\n  {\n    title: \"Built to compose\",\n    description: \"Mix heroes, nav, and sections without fighting the layout.\",\n    image: \"/assets/brand/demos/attachments/attachment-3.png\",\n  },\n] as const;\n\nexport function Features03({ className }: Features03Props) {\n  return (\n    <section className={cn(\"w-full bg-background\", className)}>\n      <div className=\"mx-auto flex w-full max-w-4xl flex-col gap-12 px-6 py-14 lg:gap-16\">\n        {FEATURES.map((feature, index) => {\n          const flip = index % 2 === 1;\n\n          return (\n            <div\n              key={feature.title}\n              data-slot=\"block-split\"\n              className={cn(\n                \"flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-10\",\n                flip && \"lg:flex-row-reverse\",\n              )}\n            >\n              <div className=\"min-h-[14rem] flex-1 overflow-hidden rounded-md bg-muted lg:min-h-[18rem]\">\n                <img\n                  src={feature.image}\n                  alt=\"\"\n                  className=\"size-full object-cover\"\n                />\n              </div>\n              <div className=\"flex flex-1 flex-col justify-center\">\n                <h3 className=\"text-base font-medium tracking-wide text-foreground\">\n                  {feature.title}\n                </h3>\n                <p className=\"mt-2 max-w-sm text-sm tracking-wide text-muted-foreground\">\n                  {feature.description}\n                </p>\n              </div>\n            </div>\n          );\n        })}\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

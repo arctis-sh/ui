@@ -1,0 +1,17 @@
+{
+  "name": "utils",
+  "type": "registry:lib",
+  "title": "utils",
+  "dependencies": [
+    "tailwind-merge"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "lib/utils.ts",
+      "type": "registry:lib",
+      "target": "lib/utils.ts",
+      "content": "import { twMerge } from \"tailwind-merge\";\r\n\r\nexport function cn(...parts: Array<string | false | null | undefined>) {\r\n  return twMerge(parts.filter(Boolean).join(\" \"));\r\n}\r\n"
+    }
+  ]
+}

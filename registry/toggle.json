@@ -1,0 +1,17 @@
+{
+  "name": "toggle",
+  "type": "registry:ui",
+  "title": "Toggle",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/toggle.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/toggle.tsx",
+      "content": "\"use client\";\r\n\r\nimport {\r\n  useState,\r\n  type ButtonHTMLAttributes,\r\n  type MouseEvent,\r\n  type ReactNode,\r\n} from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ntype ToggleVariant = \"default\" | \"outline\";\r\ntype ToggleSize = \"default\" | \"sm\" | \"lg\";\r\n\r\nexport type { ToggleVariant, ToggleSize };\r\n\r\ntype ToggleProps = Omit<\r\n  ButtonHTMLAttributes<HTMLButtonElement>,\r\n  \"onChange\" | \"value\" | \"children\"\r\n> & {\r\n  pressed?: boolean;\r\n  defaultPressed?: boolean;\r\n  onPressedChange?: (pressed: boolean) => void;\r\n  variant?: ToggleVariant;\r\n  size?: ToggleSize;\r\n  children?: ReactNode;\r\n};\r\n\r\nconst variantClass: Record<ToggleVariant, string> = {\r\n  default:\r\n    \"bg-transparent hover:bg-accent hover:text-accent-foreground data-[state=on]:bg-accent data-[state=on]:text-accent-foreground\",\r\n  outline:\r\n    \"border border-border bg-transparent hover:bg-accent hover:text-accent-foreground data-[state=on]:bg-accent data-[state=on]:text-accent-foreground\",\r\n};\r\n\r\nconst sizeClass: Record<ToggleSize, string> = {\r\n  default: \"h-9 min-w-9 gap-2 px-2\",\r\n  sm: \"h-8 min-w-8 gap-1.5 px-1.5 [&_svg]:size-3.5\",\r\n  lg: \"h-10 min-w-10 gap-2 px-2.5\",\r\n};\r\n\r\nexport function toggleVariants({\r\n  variant = \"default\",\r\n  size = \"default\",\r\n  className,\r\n}: {\r\n  variant?: ToggleVariant;\r\n  size?: ToggleSize;\r\n  className?: string;\r\n} = {}) {\r\n  return cn(\r\n    \"inline-flex shrink-0 items-center justify-center rounded-md text-sm font-normal tracking-wide whitespace-nowrap transition-colors duration-200 ease-out disabled:pointer-events-none disabled:opacity-40\",\r\n    \"[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0\",\r\n    variantClass[variant],\r\n    sizeClass[size],\r\n    className,\r\n  );\r\n}\r\n\r\nexport function Toggle({\r\n  pressed: pressedProp,\r\n  defaultPressed = false,\r\n  onPressedChange,\r\n  variant = \"default\",\r\n  size = \"default\",\r\n  disabled,\r\n  className,\r\n  type = \"button\",\r\n  children,\r\n  onClick,\r\n  ...props\r\n}: ToggleProps) {\r\n  const controlled = pressedProp !== undefined;\r\n  const [uncontrolled, setUncontrolled] = useState(defaultPressed);\r\n  const pressed = controlled ? pressedProp : uncontrolled;\r\n\r\n  function handleClick(event: MouseEvent<HTMLButtonElement>) {\r\n    onClick?.(event);\r\n    if (event.defaultPrevented || disabled) return;\r\n    const next = !pressed;\r\n    if (!controlled) setUncontrolled(next);\r\n    onPressedChange?.(next);\r\n  }\r\n\r\n  return (\r\n    <button\r\n      type={type}\r\n      data-slot=\"toggle\"\r\n      data-variant={variant}\r\n      data-size={size}\r\n      data-state={pressed ? \"on\" : \"off\"}\r\n      aria-pressed={pressed}\r\n      disabled={disabled}\r\n      className={toggleVariants({ variant, size, className })}\r\n      onClick={handleClick}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </button>\r\n  );\r\n}\r\n"
+    }
+  ]
+}

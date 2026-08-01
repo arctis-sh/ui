@@ -1,0 +1,17 @@
+{
+  "name": "banner-01",
+  "type": "registry:block",
+  "title": "banner-01",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/banner/banner-01.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/banner/banner-01.tsx",
+      "content": "\"use client\";\n\nimport { Button } from \"@/components/ui/button\";\n\nexport function Banner01() {\n  return (\n    <div className=\"flex w-full flex-col gap-3 rounded-md bg-muted px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4\">\n      <div className=\"min-w-0\">\n        <p className=\"text-sm tracking-wide text-foreground\">\n          New blocks are live\n        </p>\n        <p className=\"mt-0.5 text-xs tracking-wide text-muted-foreground\">\n          Copy ready made layouts into your app and restyle them with your\n          tokens.\n        </p>\n      </div>\n      <Button size=\"sm\" variant=\"secondary\" className=\"shrink-0 self-start sm:self-auto\">\n        Browse blocks\n      </Button>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

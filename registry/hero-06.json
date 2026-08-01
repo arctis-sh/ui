@@ -1,0 +1,19 @@
+{
+  "name": "hero-06",
+  "type": "registry:block",
+  "title": "hero-06",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar",
+    "button",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/hero/hero-06.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/hero/hero-06.tsx",
+      "content": "\"use client\";\n\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Avatar,\n  AvatarFallback,\n  AvatarGroup,\n  AvatarImage,\n} from \"@/components/ui/avatar\";\nimport { cn } from \"@/lib/utils\";\n\ntype Hero06Props = {\n  className?: string;\n};\n\nconst AVATARS = [\n  { src: \"/assets/brand/demos/avatars/avatar-1.png\", alt: \"User 1\" },\n  { src: \"/assets/brand/demos/avatars/avatar-2.png\", alt: \"User 2\" },\n  { src: \"/assets/brand/demos/avatars/avatar-3.png\", alt: \"User 3\" },\n  { src: \"/assets/brand/demos/avatars/avatar-4.png\", alt: \"User 4\" },\n  { src: \"/assets/brand/demos/avatars/avatar-5.png\", alt: \"User 5\" },\n] as const;\n\nfunction StarIcon({ className }: { className?: string }) {\n  return (\n    <svg\n      viewBox=\"0 0 24 24\"\n      fill=\"currentColor\"\n      aria-hidden=\"true\"\n      className={className}\n    >\n      <path d=\"M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.5L12 17.8 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9L12 2.5z\" />\n    </svg>\n  );\n}\n\nexport function Hero06({ className }: Hero06Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto flex h-full min-h-[28rem] w-full max-w-2xl flex-col items-center justify-center px-6 py-16 text-center\">\n        <h1 className=\"text-balance text-2xl font-medium tracking-wide text-foreground @[32rem]:text-3xl\">\n          Ship interfaces that feel finished\n        </h1>\n        <p className=\"mt-3 max-w-sm text-pretty text-sm tracking-wide text-muted-foreground\">\n          Blocks you can drop in and restyle with your tokens.\n        </p>\n        <Button type=\"button\" size=\"sm\" className=\"mt-6\">\n          Get started\n        </Button>\n\n        <div className=\"mt-10 flex flex-col items-center gap-3 @[24rem]:flex-row @[24rem]:justify-center\">\n          <AvatarGroup overlap=\"sm\">\n            {AVATARS.map((avatar) => (\n              <Avatar key={avatar.src} size=\"sm\">\n                <AvatarImage src={avatar.src} alt={avatar.alt} />\n                <AvatarFallback>?</AvatarFallback>\n              </Avatar>\n            ))}\n          </AvatarGroup>\n          <div className=\"flex flex-col items-center gap-1 @[24rem]:items-start\">\n            <div className=\"flex items-center gap-1.5\">\n              <div className=\"flex items-center gap-0.5 text-amber-400\" aria-hidden=\"true\">\n                {Array.from({ length: 5 }).map((_, i) => (\n                  <StarIcon key={i} className=\"size-3.5\" />\n                ))}\n              </div>\n              <span className=\"text-xs tracking-wide text-foreground\">4.9</span>\n            </div>\n            <p className=\"text-xs tracking-wide text-muted-foreground\">\n              from 200+ reviews\n            </p>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

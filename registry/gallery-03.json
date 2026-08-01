@@ -1,0 +1,17 @@
+{
+  "name": "gallery-03",
+  "type": "registry:block",
+  "title": "gallery-03",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/gallery/gallery-03.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/gallery/gallery-03.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\n\ntype Gallery03Props = {\n  className?: string;\n};\n\nconst IMAGES = [\n  \"/assets/brand/demos/attachments/attachment-1.png\",\n  \"/assets/brand/demos/attachments/attachment-2.png\",\n  \"/assets/brand/demos/attachments/attachment-3.png\",\n  \"/assets/brand/demos/attachments/attachment-4.png\",\n  \"/assets/brand/demos/attachments/attachment-5.png\",\n] as const;\n\nexport function Gallery03({ className }: Gallery03Props) {\n  const track = [...IMAGES, ...IMAGES];\n\n  return (\n    <section className={cn(\"w-full overflow-hidden bg-background\", className)}>\n      <style>{`\n        @keyframes gallery-03-scroll {\n          from { transform: translateX(0); }\n          to { transform: translateX(-50%); }\n        }\n      `}</style>\n      <div className=\"mx-auto w-full max-w-4xl px-4 py-10 sm:px-6 sm:py-14\">\n        <div className=\"mx-auto max-w-md text-center\">\n          <h2 className=\"text-xl font-medium tracking-wide text-foreground sm:text-2xl\">\n            In motion\n          </h2>\n          <p className=\"mt-2 text-sm tracking-wide text-muted-foreground\">\n            A slow horizontal strip of frames — pause by hovering the track.\n          </p>\n        </div>\n      </div>\n      <div\n        className=\"w-full overflow-hidden pb-10 sm:pb-14\"\n        aria-hidden=\"true\"\n      >\n        <div\n          className=\"flex w-max gap-3 pr-3 hover:[animation-play-state:paused]\"\n          style={{ animation: \"gallery-03-scroll 36s linear infinite\" }}\n        >\n          {track.map((src, index) => (\n            <div\n              key={`${src}-${index}`}\n              className=\"aspect-[4/3] w-[16rem] shrink-0 overflow-hidden rounded-xl bg-muted sm:w-[18rem]\"\n            >\n              <img src={src} alt=\"\" className=\"size-full object-cover\" />\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

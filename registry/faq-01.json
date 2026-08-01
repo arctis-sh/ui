@@ -1,0 +1,18 @@
+{
+  "name": "faq-01",
+  "type": "registry:block",
+  "title": "faq-01",
+  "dependencies": [],
+  "registryDependencies": [
+    "accordion",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/faq/faq-01.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/faq/faq-01.tsx",
+      "content": "\"use client\";\n\nimport {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from \"@/components/ui/accordion\";\nimport { cn } from \"@/lib/utils\";\n\ntype Faq01Props = {\n  className?: string;\n};\n\nconst FAQS = [\n  {\n    value: \"1\",\n    question: \"Can I restyle blocks with my own theme?\",\n    answer:\n      \"Yes. Every block uses your theme tokens for color, radius, and type — swap the theme and the section follows.\",\n  },\n  {\n    value: \"2\",\n    question: \"How do I install a block?\",\n    answer:\n      \"Run the CLI add command for the block you want, then import it into a page. No extra setup beyond your existing UI kit.\",\n  },\n  {\n    value: \"3\",\n    question: \"Do blocks work in light and dark mode?\",\n    answer:\n      \"They do. Surfaces and text pull from semantic tokens, so both modes stay consistent without a second stylesheet.\",\n  },\n  {\n    value: \"4\",\n    question: \"Can I mix blocks freely?\",\n    answer:\n      \"That’s the point. Heroes, pricing, FAQs, and the rest are independent sections — compose them in any order.\",\n  },\n] as const;\n\nexport function Faq01({ className }: Faq01Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto w-full max-w-2xl px-4 py-10 @[32rem]:px-6 @[32rem]:py-14\">\n        <div className=\"text-center\">\n          <h2 className=\"text-xl font-medium tracking-wide text-foreground @[32rem]:text-2xl\">\n            Frequently asked questions\n          </h2>\n          <p className=\"mt-2 text-sm tracking-wide text-muted-foreground\">\n            Quick answers about install, theming, and how blocks fit together.\n          </p>\n        </div>\n        <Accordion type=\"single\" collapsible className=\"mt-8\">\n          {FAQS.map((faq) => (\n            <AccordionItem key={faq.value} value={faq.value}>\n              <AccordionTrigger indicator=\"plus\">{faq.question}</AccordionTrigger>\n              <AccordionContent>{faq.answer}</AccordionContent>\n            </AccordionItem>\n          ))}\n        </Accordion>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

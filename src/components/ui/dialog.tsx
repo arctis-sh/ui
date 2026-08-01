@@ -7,6 +7,7 @@ import {
   type ComponentProps,
 } from "react";
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
+import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useOverlayEntered } from "@/lib/use-overlay-entered";
 
@@ -139,7 +140,12 @@ function DialogContent({
           {showCloseButton ? (
             <DialogPrimitive.Close
               data-slot="dialog-close"
-              className="absolute top-3 right-3 inline-flex size-7 items-center justify-center rounded-md text-muted-foreground transition-colors duration-200 ease-out hover:bg-accent hover:text-foreground"
+              className={buttonVariants({
+                variant: "ghost",
+                size: "icon-sm",
+                className:
+                  "absolute top-3 right-3 text-muted-foreground hover:text-foreground",
+              })}
             >
               <XIcon className="size-4" />
               <span className="sr-only">Close</span>
@@ -182,7 +188,7 @@ function DialogFooter({
       {showCloseButton ? (
         <DialogPrimitive.Close
           data-slot="dialog-close"
-          className="inline-flex h-9 items-center justify-center rounded-md border border-border bg-transparent px-4 text-sm font-normal tracking-wide text-foreground transition-all duration-200 ease-out hover:bg-muted hover:text-accent-foreground"
+          className={buttonVariants({ variant: "outline" })}
         >
           Close
         </DialogPrimitive.Close>

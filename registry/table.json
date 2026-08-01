@@ -1,0 +1,17 @@
+{
+  "name": "table",
+  "type": "registry:ui",
+  "title": "Table",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/table.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/table.tsx",
+      "content": "import type { ComponentProps } from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nexport function Table({ className, ...props }: ComponentProps<\"table\">) {\r\n  return (\r\n    <div\r\n      data-slot=\"table-container\"\r\n      className=\"relative w-full overflow-x-auto overflow-y-hidden rounded-md bg-surface\"\r\n    >\r\n      <table\r\n        data-slot=\"table\"\r\n        className={cn(\"w-full text-left text-sm tracking-wide\", className)}\r\n        {...props}\r\n      />\r\n    </div>\r\n  );\r\n}\r\n\r\nexport function TableHeader({ className, ...props }: ComponentProps<\"thead\">) {\r\n  return (\r\n    <thead\r\n      data-slot=\"table-header\"\r\n      className={cn(\"[&_tr]:border-b [&_tr]:border-border\", className)}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport function TableBody({ className, ...props }: ComponentProps<\"tbody\">) {\r\n  return (\r\n    <tbody\r\n      data-slot=\"table-body\"\r\n      className={cn(\r\n        \"[&_tr]:transition-colors [&_tr]:duration-200 [&_tr]:ease-out\",\r\n        \"[&_tr]:hover:bg-surface-hover\",\r\n        \"[&_tr]:has-[[aria-expanded=true]]:bg-surface-hover\",\r\n        \"[&_tr]:data-[state=selected]:bg-surface-hover\",\r\n        \"[&_tr:last-child]:border-0\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport function TableFooter({ className, ...props }: ComponentProps<\"tfoot\">) {\r\n  return (\r\n    <tfoot\r\n      data-slot=\"table-footer\"\r\n      className={cn(\r\n        \"border-t border-border [&_td]:font-medium [&>tr]:last:border-b-0\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport function TableRow({ className, ...props }: ComponentProps<\"tr\">) {\r\n  return (\r\n    <tr\r\n      data-slot=\"table-row\"\r\n      className={cn(\"border-b border-border\", className)}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport function TableHead({ className, ...props }: ComponentProps<\"th\">) {\r\n  return (\r\n    <th\r\n      data-slot=\"table-head\"\r\n      className={cn(\r\n        \"px-3 py-2 text-left align-middle font-normal tracking-wide whitespace-nowrap text-muted-foreground\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport function TableCell({ className, ...props }: ComponentProps<\"td\">) {\r\n  return (\r\n    <td\r\n      data-slot=\"table-cell\"\r\n      className={cn(\r\n        \"px-3 py-2 align-middle tracking-wide whitespace-nowrap\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport function TableCaption({ className, ...props }: ComponentProps<\"div\">) {\r\n  return (\r\n    <div\r\n      data-slot=\"table-caption\"\r\n      className={cn(\"mt-3 text-center text-sm text-muted-foreground\", className)}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n"
+    }
+  ]
+}

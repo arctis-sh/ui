@@ -1,0 +1,21 @@
+{
+  "name": "login-03",
+  "type": "registry:block",
+  "title": "login-03",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "input",
+    "label",
+    "logo",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/login/login-03.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/login/login-03.tsx",
+      "content": "\"use client\";\n\nimport { Logo } from \"@/components/brand\";\nimport { Button } from \"@/components/ui/button\";\nimport { Input } from \"@/components/ui/input\";\nimport { Label } from \"@/components/ui/label\";\nimport { cn } from \"@/lib/utils\";\n\ntype Login03Props = {\n  className?: string;\n};\n\nexport function Login03({ className }: Login03Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto w-full max-w-4xl px-4 py-10 @[32rem]:px-6 @[32rem]:py-14\">\n        <div\n          data-slot=\"block-split\"\n          className=\"grid w-full overflow-hidden rounded-xl bg-muted @[40rem]:grid-cols-2\"\n        >\n          <div className=\"flex flex-col justify-between px-6 py-10 @[32rem]:px-8 @[32rem]:py-12\">\n            <div>\n              <Logo className=\"block h-4 w-auto text-foreground\" />\n              <h2 className=\"mt-6 text-2xl font-medium tracking-wide text-foreground @[32rem]:text-3xl\">\n                Build pages faster with ready blocks\n              </h2>\n              <p className=\"mt-3 max-w-sm text-sm tracking-wide text-muted-foreground\">\n                Sign in to your workspace and pick up where you left off.\n              </p>\n            </div>\n            <p className=\"mt-10 text-xs tracking-wide text-muted-foreground @[40rem]:mt-0\">\n              Trusted by teams shipping product UI every week.\n            </p>\n          </div>\n\n          <div className=\"bg-background px-6 py-10 @[32rem]:px-8 @[32rem]:py-12\">\n            <h3 className=\"text-lg font-medium tracking-wide text-foreground\">\n              Sign in\n            </h3>\n            <p className=\"mt-1 text-sm tracking-wide text-muted-foreground\">\n              Use your work email to continue.\n            </p>\n\n            <form\n              className=\"mt-6 flex flex-col gap-4\"\n              onSubmit={(event) => event.preventDefault()}\n            >\n              <div className=\"flex flex-col gap-1.5\">\n                <Label htmlFor=\"login-03-email\">Email</Label>\n                <Input\n                  id=\"login-03-email\"\n                  name=\"email\"\n                  type=\"email\"\n                  autoComplete=\"email\"\n                  placeholder=\"maya@northline.com\"\n                  className=\"border-0 bg-muted\"\n                />\n              </div>\n              <div className=\"flex flex-col gap-1.5\">\n                <Label htmlFor=\"login-03-password\">Password</Label>\n                <Input\n                  id=\"login-03-password\"\n                  name=\"password\"\n                  type=\"password\"\n                  autoComplete=\"current-password\"\n                  placeholder=\"••••••••\"\n                  className=\"border-0 bg-muted\"\n                />\n              </div>\n              <Button type=\"submit\" size=\"sm\" className=\"w-full\">\n                Continue\n              </Button>\n            </form>\n\n            <p className=\"mt-6 text-center text-sm tracking-wide text-muted-foreground\">\n              New here?{\" \"}\n              <a href=\"#\" className=\"text-foreground\">\n                Create account\n              </a>\n            </p>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

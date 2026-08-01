@@ -9,6 +9,7 @@ import {
   type PointerEvent as ReactPointerEvent,
   type ReactNode,
 } from "react";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 type AttachmentState = "idle" | "uploading" | "processing" | "error" | "done";
@@ -240,16 +241,18 @@ export function AttachmentAction({
   ...props
 }: AttachmentActionProps) {
   return (
-    <button
+    <Button
       type="button"
+      variant="ghost"
+      size="icon-sm"
       className={cn(
-        "inline-flex size-7 items-center justify-center rounded-sm text-muted-foreground transition-colors duration-200 ease-out hover:bg-accent hover:text-accent-foreground [&>svg]:size-3.5",
+        "size-7 text-muted-foreground [&>svg]:size-3.5",
         className,
       )}
       {...props}
     >
       {children}
-    </button>
+    </Button>
   );
 }
 

@@ -1,0 +1,17 @@
+{
+  "name": "stats-01",
+  "type": "registry:block",
+  "title": "stats-01",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/stats/stats-01.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/stats/stats-01.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\n\ntype Stats01Props = {\n  className?: string;\n};\n\nconst STATS = [\n  { value: \"200+\", label: \"Blocks\" },\n  { value: \"60\", label: \"Components\" },\n  { value: \"12\", label: \"Themes\" },\n  { value: \"99.9%\", label: \"Uptime\" },\n] as const;\n\nexport function Stats01({ className }: Stats01Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto w-full max-w-4xl px-4 py-10 @[32rem]:px-6 @[32rem]:py-14\">\n        <ul className=\"grid grid-cols-2 gap-y-8 @[32rem]:grid-cols-4 @[32rem]:gap-0 @[32rem]:divide-x @[32rem]:divide-border\">\n          {STATS.map((stat) => (\n            <li\n              key={stat.label}\n              className=\"flex flex-col items-center text-center\"\n            >\n              <p className=\"text-3xl font-medium tracking-tight text-foreground @[32rem]:text-4xl\">\n                {stat.value}\n              </p>\n              <p className=\"mt-1.5 text-xs tracking-wide text-muted-foreground\">\n                {stat.label}\n              </p>\n            </li>\n          ))}\n        </ul>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "input-otp",
+  "type": "registry:ui",
+  "title": "Input Otp",
+  "dependencies": [
+    "input-otp"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/input-otp.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/input-otp.tsx",
+      "content": "\"use client\";\r\n\r\nimport { useContext, type ComponentProps } from \"react\";\r\nimport { OTPInput, OTPInputContext } from \"input-otp\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nfunction InputOTP({\r\n  className,\r\n  containerClassName,\r\n  ...props\r\n}: ComponentProps<typeof OTPInput> & {\r\n  containerClassName?: string;\r\n}) {\r\n  return (\r\n    <OTPInput\r\n      data-slot=\"input-otp\"\r\n      containerClassName={cn(\r\n        \"flex items-center gap-2 has-disabled:opacity-40\",\r\n        containerClassName,\r\n      )}\r\n      spellCheck={false}\r\n      className={cn(\"disabled:cursor-not-allowed\", className)}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nfunction InputOTPGroup({ className, ...props }: ComponentProps<\"div\">) {\r\n  return (\r\n    <div\r\n      data-slot=\"input-otp-group\"\r\n      className={cn(\"flex items-center\", className)}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nfunction InputOTPSlot({\r\n  index,\r\n  className,\r\n  ...props\r\n}: ComponentProps<\"div\"> & {\r\n  index: number;\r\n}) {\r\n  const inputOTPContext = useContext(OTPInputContext);\r\n  const { char, hasFakeCaret, isActive } = inputOTPContext?.slots[index] ?? {};\r\n\r\n  return (\r\n    <div\r\n      data-slot=\"input-otp-slot\"\r\n      data-active={isActive}\r\n      className={cn(\r\n        \"relative flex h-9 w-9 items-center justify-center border-y border-r border-border text-sm tracking-wide transition-colors duration-200 ease-out first:rounded-l-md first:border-l last:rounded-r-md aria-invalid:border-destructive aria-invalid:bg-destructive/5\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      {char}\r\n      {hasFakeCaret ? (\r\n        <div className=\"pointer-events-none absolute inset-0 flex items-center justify-center\">\r\n          <div className=\"h-4 w-px animate-pulse bg-foreground duration-1000\" />\r\n        </div>\r\n      ) : null}\r\n    </div>\r\n  );\r\n}\r\n\r\nfunction InputOTPSeparator({ className, ...props }: ComponentProps<\"div\">) {\r\n  return (\r\n    <div\r\n      data-slot=\"input-otp-separator\"\r\n      role=\"separator\"\r\n      className={cn(\r\n        \"flex items-center text-muted-foreground [&_svg:not([class*='size-'])]:size-4\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      <MinusIcon />\r\n    </div>\r\n  );\r\n}\r\n\r\nfunction MinusIcon({ className }: { className?: string }) {\r\n  return (\r\n    <svg\r\n      viewBox=\"0 0 24 24\"\r\n      fill=\"none\"\r\n      stroke=\"currentColor\"\r\n      strokeWidth=\"2\"\r\n      strokeLinecap=\"round\"\r\n      strokeLinejoin=\"round\"\r\n      aria-hidden=\"true\"\r\n      className={className}\r\n    >\r\n      <path d=\"M5 12h14\" />\r\n    </svg>\r\n  );\r\n}\r\n\r\nexport { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator };\r\n"
+    }
+  ]
+}

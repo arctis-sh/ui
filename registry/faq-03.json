@@ -1,0 +1,18 @@
+{
+  "name": "faq-03",
+  "type": "registry:block",
+  "title": "faq-03",
+  "dependencies": [],
+  "registryDependencies": [
+    "accordion",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/faq/faq-03.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/faq/faq-03.tsx",
+      "content": "\"use client\";\n\nimport {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from \"@/components/ui/accordion\";\nimport { cn } from \"@/lib/utils\";\n\ntype Faq03Props = {\n  className?: string;\n};\n\nconst GROUPS = [\n  {\n    title: \"Product\",\n    items: [\n      {\n        value: \"p1\",\n        question: \"Can I restyle blocks with my theme?\",\n        answer:\n          \"Yes. Colors, radii, and type come from your tokens — change the theme and every block updates.\",\n      },\n      {\n        value: \"p2\",\n        question: \"Do blocks support dark mode?\",\n        answer:\n          \"They use semantic surfaces and text, so light and dark both work without a second stylesheet.\",\n      },\n      {\n        value: \"p3\",\n        question: \"Can I mix blocks freely?\",\n        answer:\n          \"They’re independent sections. Drop heroes, pricing, and FAQs in any order on a page.\",\n      },\n    ],\n  },\n  {\n    title: \"Billing\",\n    items: [\n      {\n        value: \"b1\",\n        question: \"Is there a free plan?\",\n        answer:\n          \"Hobby covers side projects. Upgrade when you need more seats, SSO, or priority support.\",\n      },\n      {\n        value: \"b2\",\n        question: \"Can I change plans later?\",\n        answer:\n          \"Anytime. Upgrades apply immediately; downgrades take effect on the next billing cycle.\",\n      },\n      {\n        value: \"b3\",\n        question: \"Do you offer invoices?\",\n        answer:\n          \"Business and Enterprise plans support invoicing and custom contracts. Talk to us if you need one.\",\n      },\n    ],\n  },\n] as const;\n\nexport function Faq03({ className }: Faq03Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto w-full max-w-4xl px-4 py-10 @[32rem]:px-6 @[32rem]:py-14\">\n        <div className=\"mx-auto max-w-md text-center\">\n          <h2 className=\"text-xl font-medium tracking-wide text-foreground @[32rem]:text-2xl\">\n            FAQ by topic\n          </h2>\n          <p className=\"mt-2 text-sm tracking-wide text-muted-foreground\">\n            Product and billing answers side by side.\n          </p>\n        </div>\n        <div className=\"mt-8 grid grid-cols-1 gap-3 @[40rem]:grid-cols-2\">\n          {GROUPS.map((group) => (\n            <div\n              key={group.title}\n              className=\"min-w-0 rounded-xl bg-muted p-5 @[32rem]:p-6\"\n            >\n              <h3 className=\"text-xs font-medium tracking-wide text-muted-foreground\">\n                {group.title}\n              </h3>\n              <Accordion type=\"single\" collapsible className=\"mt-3\">\n                {group.items.map((faq) => (\n                  <AccordionItem key={faq.value} value={faq.value}>\n                    <AccordionTrigger indicator=\"plus\">\n                      {faq.question}\n                    </AccordionTrigger>\n                    <AccordionContent>{faq.answer}</AccordionContent>\n                  </AccordionItem>\n                ))}\n              </Accordion>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

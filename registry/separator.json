@@ -1,0 +1,17 @@
+{
+  "name": "separator",
+  "type": "registry:ui",
+  "title": "Separator",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/separator.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/separator.tsx",
+      "content": "import type { HTMLAttributes } from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ntype SeparatorProps = HTMLAttributes<HTMLDivElement> & {\r\n  orientation?: \"horizontal\" | \"vertical\";\r\n  decorative?: boolean;\r\n};\r\n\r\nexport function Separator({\r\n  className,\r\n  orientation = \"horizontal\",\r\n  decorative = true,\r\n  ...props\r\n}: SeparatorProps) {\r\n  return (\r\n    <div\r\n      role={decorative ? \"none\" : \"separator\"}\r\n      aria-orientation={decorative ? undefined : orientation}\r\n      data-slot=\"separator\"\r\n      data-orientation={orientation}\r\n      className={cn(\r\n        \"shrink-0 bg-border\",\r\n        \"data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full\",\r\n        \"data-[orientation=vertical]:w-px data-[orientation=vertical]:self-stretch\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n"
+    }
+  ]
+}

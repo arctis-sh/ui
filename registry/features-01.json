@@ -1,0 +1,17 @@
+{
+  "name": "features-01",
+  "type": "registry:block",
+  "title": "features-01",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/features/features-01.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/features/features-01.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\n\ntype Features01Props = {\n  className?: string;\n};\n\nconst FEATURES = [\n  {\n    title: \"Token ready\",\n    description: \"Restyle blocks with your theme tokens.\",\n    image: \"/assets/brand/demos/attachments/attachment-1.png\",\n  },\n  {\n    title: \"Copy and ship\",\n    description: \"Install a block and drop it into a page.\",\n    image: \"/assets/brand/demos/attachments/attachment-2.png\",\n  },\n  {\n    title: \"Built to compose\",\n    description: \"Mix sections without fighting the layout.\",\n    image: \"/assets/brand/demos/attachments/attachment-3.png\",\n  },\n] as const;\n\nexport function Features01({ className }: Features01Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto w-full max-w-4xl px-6 py-14\">\n        <ul className=\"grid w-full gap-4 @[40rem]:grid-cols-3\">\n          {FEATURES.map((feature) => (\n            <li\n              key={feature.title}\n              className=\"rounded-xl border border-border p-2\"\n            >\n              <div className=\"aspect-[16/10] w-full overflow-hidden rounded-sm bg-muted\">\n                <img\n                  src={feature.image}\n                  alt=\"\"\n                  className=\"size-full object-cover\"\n                />\n              </div>\n              <div className=\"px-1 pt-3 pb-1\">\n                <h3 className=\"text-sm font-medium tracking-wide text-foreground\">\n                  {feature.title}\n                </h3>\n                <p className=\"mt-1.5 text-sm tracking-wide text-muted-foreground\">\n                  {feature.description}\n                </p>\n              </div>\n            </li>\n          ))}\n        </ul>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

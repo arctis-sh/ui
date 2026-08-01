@@ -1,0 +1,21 @@
+{
+  "name": "login-01",
+  "type": "registry:block",
+  "title": "login-01",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "checkbox",
+    "input",
+    "label",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/login/login-01.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/login/login-01.tsx",
+      "content": "\"use client\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { Checkbox } from \"@/components/ui/checkbox\";\nimport { Input } from \"@/components/ui/input\";\nimport { Label } from \"@/components/ui/label\";\nimport { cn } from \"@/lib/utils\";\n\ntype Login01Props = {\n  className?: string;\n};\n\nexport function Login01({ className }: Login01Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto w-full max-w-sm px-4 py-10 @[32rem]:px-6 @[32rem]:py-14\">\n        <div className=\"text-center\">\n          <h2 className=\"text-xl font-medium tracking-wide text-foreground @[32rem]:text-2xl\">\n            Sign in\n          </h2>\n          <p className=\"mt-2 text-sm tracking-wide text-muted-foreground\">\n            Welcome back — enter your details to continue.\n          </p>\n        </div>\n\n        <form\n          className=\"mt-8 flex flex-col gap-4\"\n          onSubmit={(event) => event.preventDefault()}\n        >\n          <div className=\"flex flex-col gap-1.5\">\n            <Label htmlFor=\"login-01-email\">Email</Label>\n            <Input\n              id=\"login-01-email\"\n              name=\"email\"\n              type=\"email\"\n              autoComplete=\"email\"\n              placeholder=\"maya@northline.com\"\n              className=\"border-0 bg-muted\"\n            />\n          </div>\n          <div className=\"flex flex-col gap-1.5\">\n            <div className=\"flex items-center justify-between gap-2\">\n              <Label htmlFor=\"login-01-password\">Password</Label>\n              <a\n                href=\"#\"\n                className=\"text-xs tracking-wide text-muted-foreground\"\n              >\n                Forgot password?\n              </a>\n            </div>\n            <Input\n              id=\"login-01-password\"\n              name=\"password\"\n              type=\"password\"\n              autoComplete=\"current-password\"\n              placeholder=\"••••••••\"\n              className=\"border-0 bg-muted\"\n            />\n          </div>\n\n          <div className=\"flex items-center gap-2\">\n            <Checkbox id=\"login-01-remember\" />\n            <Label htmlFor=\"login-01-remember\" className=\"font-normal\">\n              Remember me\n            </Label>\n          </div>\n\n          <Button type=\"submit\" size=\"sm\" className=\"w-full\">\n            Sign in\n          </Button>\n        </form>\n\n        <p className=\"mt-6 text-center text-sm tracking-wide text-muted-foreground\">\n          Don’t have an account?{\" \"}\n          <a href=\"#\" className=\"text-foreground\">\n            Create one\n          </a>\n        </p>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

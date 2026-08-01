@@ -1,0 +1,19 @@
+{
+  "name": "cta-03",
+  "type": "registry:block",
+  "title": "cta-03",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "input",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/cta/cta-03.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/cta/cta-03.tsx",
+      "content": "\"use client\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { Input } from \"@/components/ui/input\";\nimport { cn } from \"@/lib/utils\";\n\ntype Cta03Props = {\n  className?: string;\n};\n\nexport function Cta03({ className }: Cta03Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto w-full max-w-3xl px-4 py-10 @[32rem]:px-6 @[32rem]:py-14\">\n        <div className=\"flex flex-col items-center text-center\">\n          <h2 className=\"text-xl font-medium tracking-wide text-foreground @[32rem]:text-2xl\">\n            Stay in the loop\n          </h2>\n          <p className=\"mt-2 max-w-md text-sm tracking-wide text-muted-foreground\">\n            New blocks and release notes when they ship. No spam.\n          </p>\n          <form\n            className=\"mt-6 flex w-full max-w-md flex-col gap-2 @[32rem]:flex-row @[32rem]:items-center\"\n            onSubmit={(event) => event.preventDefault()}\n          >\n            <Input\n              name=\"email\"\n              type=\"email\"\n              placeholder=\"you@company.com\"\n              aria-label=\"Email\"\n              className=\"h-9 min-h-9 max-h-9 flex-1 border-0 bg-muted py-0\"\n            />\n            <Button\n              type=\"submit\"\n              className=\"h-9 min-h-9 max-h-9 w-full shrink-0 whitespace-nowrap @[32rem]:w-auto\"\n            >\n              Subscribe\n            </Button>\n          </form>\n        </div>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

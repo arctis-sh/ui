@@ -1,0 +1,15 @@
+{
+  "name": "use-submenu-position",
+  "type": "registry:hook",
+  "title": "use-submenu-position",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "lib/use-submenu-position.ts",
+      "type": "registry:hook",
+      "target": "lib/use-submenu-position.ts",
+      "content": "\"use client\";\r\n\r\nimport {\r\n  useLayoutEffect,\r\n  useState,\r\n  type CSSProperties,\r\n  type RefObject,\r\n} from \"react\";\r\n\r\ntype SubmenuSide = \"left\" | \"right\";\r\n\r\ntype SubmenuPlacement = {\r\n  side: SubmenuSide;\r\n  style: CSSProperties;\r\n};\r\n\r\nconst PAD = 8;\r\nconst GAP = 4;\r\n\r\nconst defaultPlacement: SubmenuPlacement = {\r\n  side: \"right\",\r\n  style: {\r\n    top: 0,\r\n    left: `calc(100% - ${GAP}px)`,\r\n    right: \"auto\",\r\n  },\r\n};\r\n\r\n/** Positions a submenu relative to its `relative` parent, flipping and clamping to the viewport. */\r\nexport function useSubmenuPosition(\r\n  open: boolean,\r\n  contentRef: RefObject<HTMLElement | null>,\r\n): SubmenuPlacement {\r\n  const [placement, setPlacement] = useState<SubmenuPlacement>(defaultPlacement);\r\n\r\n  useLayoutEffect(() => {\r\n    if (!open) return;\r\n\r\n    function update() {\r\n      const content = contentRef.current;\r\n      if (!content) return;\r\n\r\n      const parent = content.offsetParent as HTMLElement | null;\r\n      if (!parent) return;\r\n\r\n      const parentRect = parent.getBoundingClientRect();\r\n      // offset* ignores CSS scale on the closed overlay so we get the real size\r\n      const width = content.offsetWidth;\r\n      const height = content.offsetHeight;\r\n\r\n      const spaceRight = window.innerWidth - parentRect.right - PAD;\r\n      const spaceLeft = parentRect.left - PAD;\r\n      const side: SubmenuSide =\r\n        width > spaceRight && spaceLeft > spaceRight ? \"left\" : \"right\";\r\n\r\n      let top = 0;\r\n      if (parentRect.top + height > window.innerHeight - PAD) {\r\n        top = window.innerHeight - PAD - height - parentRect.top;\r\n      }\r\n      if (parentRect.top + top < PAD) {\r\n        top = PAD - parentRect.top;\r\n      }\r\n\r\n      setPlacement({\r\n        side,\r\n        style:\r\n          side === \"right\"\r\n            ? { top, left: `calc(100% - ${GAP}px)`, right: \"auto\" }\r\n            : { top, right: `calc(100% - ${GAP}px)`, left: \"auto\" },\r\n      });\r\n    }\r\n\r\n    update();\r\n    const frame = requestAnimationFrame(update);\r\n    window.addEventListener(\"resize\", update);\r\n    return () => {\r\n      cancelAnimationFrame(frame);\r\n      window.removeEventListener(\"resize\", update);\r\n    };\r\n  }, [open, contentRef]);\r\n\r\n  return open ? placement : defaultPlacement;\r\n}\r\n"
+    }
+  ]
+}

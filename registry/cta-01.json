@@ -1,0 +1,18 @@
+{
+  "name": "cta-01",
+  "type": "registry:block",
+  "title": "cta-01",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/cta/cta-01.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/cta/cta-01.tsx",
+      "content": "\"use client\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\ntype Cta01Props = {\n  className?: string;\n};\n\nexport function Cta01({ className }: Cta01Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto flex w-full max-w-2xl flex-col items-center px-4 py-12 text-center @[32rem]:px-6 @[32rem]:py-16\">\n        <h2 className=\"text-balance text-xl font-medium tracking-wide text-foreground @[32rem]:text-2xl\">\n          Ready to ship something that feels finished?\n        </h2>\n        <p className=\"mt-3 max-w-md text-pretty text-sm tracking-wide text-muted-foreground\">\n          Drop in blocks, restyle with your tokens, and keep moving.\n        </p>\n        <div className=\"mt-6 flex flex-wrap items-center justify-center gap-2\">\n          <Button type=\"button\" size=\"sm\">\n            Get started\n          </Button>\n          <Button type=\"button\" size=\"sm\" variant=\"ghost\">\n            Browse blocks\n          </Button>\n        </div>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

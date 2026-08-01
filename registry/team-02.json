@@ -1,0 +1,17 @@
+{
+  "name": "team-02",
+  "type": "registry:block",
+  "title": "team-02",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/team/team-02.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/team/team-02.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\n\ntype Team02Props = {\n  className?: string;\n};\n\nconst MEMBERS = [\n  {\n    name: \"Maya Chen\",\n    role: \"CEO & Co-founder\",\n    bio: \"Previously design systems at Northline. Obsessed with defaults that feel finished.\",\n    avatar: \"/assets/brand/demos/avatars/avatar-1.png\",\n  },\n  {\n    name: \"Jordan Hale\",\n    role: \"Head of Design\",\n    bio: \"Owns the visual language — type, space, and how every block sits on a page.\",\n    avatar: \"/assets/brand/demos/avatars/avatar-2.png\",\n  },\n  {\n    name: \"Priya Nair\",\n    role: \"Eng Manager\",\n    bio: \"Keeps the registry sharp and the install path boring in the best way.\",\n    avatar: \"/assets/brand/demos/avatars/avatar-3.png\",\n  },\n  {\n    name: \"Chris Ortega\",\n    role: \"Product\",\n    bio: \"Turns customer asks into blocks teams can drop in without a redesign tax.\",\n    avatar: \"/assets/brand/demos/avatars/avatar-4.png\",\n  },\n] as const;\n\nexport function Team02({ className }: Team02Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto w-full max-w-4xl px-4 py-10 @[32rem]:px-6 @[32rem]:py-14\">\n        <div className=\"mx-auto max-w-md text-center\">\n          <h2 className=\"text-xl font-medium tracking-wide text-foreground @[32rem]:text-2xl\">\n            Built by practitioners\n          </h2>\n          <p className=\"mt-2 text-sm tracking-wide text-muted-foreground\">\n            Small team, high taste — design and engineering in the same room.\n          </p>\n        </div>\n        <ul className=\"mt-8 grid grid-cols-1 gap-3 @[40rem]:grid-cols-2\">\n          {MEMBERS.map((member) => (\n            <li\n              key={member.name}\n              className=\"flex gap-4 rounded-xl bg-muted p-4\"\n            >\n              <img\n                src={member.avatar}\n                alt=\"\"\n                className=\"size-14 shrink-0 rounded-xl object-cover\"\n              />\n              <div className=\"min-w-0\">\n                <p className=\"text-sm font-medium tracking-wide text-foreground\">\n                  {member.name}\n                </p>\n                <p className=\"mt-0.5 text-xs tracking-wide text-muted-foreground\">\n                  {member.role}\n                </p>\n                <p className=\"mt-2 text-xs tracking-wide text-muted-foreground\">\n                  {member.bio}\n                </p>\n              </div>\n            </li>\n          ))}\n        </ul>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

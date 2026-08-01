@@ -1,0 +1,15 @@
+{
+  "name": "use-overlay-entered",
+  "type": "registry:hook",
+  "title": "use-overlay-entered",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "lib/use-overlay-entered.ts",
+      "type": "registry:hook",
+      "target": "lib/use-overlay-entered.ts",
+      "content": "\"use client\";\r\n\r\nimport { useEffect, useState } from \"react\";\r\n\r\n/** Mount closed, enter next frame. Close snaps (no exit motion). */\r\nexport function useOverlayEntered(open: boolean) {\r\n  const [entered, setEntered] = useState(false);\r\n\r\n  useEffect(() => {\r\n    if (!open) {\r\n      setEntered(false);\r\n      return;\r\n    }\r\n\r\n    let frame2 = 0;\r\n    const frame1 = requestAnimationFrame(() => {\r\n      frame2 = requestAnimationFrame(() => setEntered(true));\r\n    });\r\n\r\n    return () => {\r\n      cancelAnimationFrame(frame1);\r\n      cancelAnimationFrame(frame2);\r\n    };\r\n  }, [open]);\r\n\r\n  return open && entered;\r\n}\r\n"
+    }
+  ]
+}

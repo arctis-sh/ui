@@ -1,0 +1,19 @@
+{
+  "name": "empty-states-03",
+  "type": "registry:block",
+  "title": "empty-states-03",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "empty",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/empty-states/empty-states-03.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/empty-states/empty-states-03.tsx",
+      "content": "\"use client\";\n\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from \"@/components/ui/empty\";\nimport { cn } from \"@/lib/utils\";\n\ntype EmptyStates03Props = {\n  className?: string;\n};\n\nfunction AlertIcon({ className }: { className?: string }) {\n  return (\n    <svg\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth=\"2\"\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n      aria-hidden=\"true\"\n      className={className}\n    >\n      <path d=\"M12 9v4\" />\n      <path d=\"M12 17h.01\" />\n      <path d=\"M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z\" />\n    </svg>\n  );\n}\n\nexport function EmptyStates03({ className }: EmptyStates03Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto w-full max-w-3xl px-4 py-10 @[32rem]:px-6 @[32rem]:py-14\">\n        <Empty className=\"w-full rounded-xl bg-muted\">\n          <EmptyHeader>\n            <EmptyMedia variant=\"icon\" className=\"bg-transparent text-destructive\">\n              <AlertIcon />\n            </EmptyMedia>\n            <EmptyTitle>Couldn’t load this page</EmptyTitle>\n            <EmptyDescription>\n              Something went wrong on our side. Retry in a moment or come back\n              later.\n            </EmptyDescription>\n          </EmptyHeader>\n          <EmptyContent>\n            <div className=\"flex flex-wrap items-center justify-center gap-2\">\n              <Button type=\"button\" size=\"sm\">\n                Try again\n              </Button>\n              <Button type=\"button\" size=\"sm\" variant=\"ghost\">\n                Go home\n              </Button>\n            </div>\n          </EmptyContent>\n        </Empty>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

@@ -288,7 +288,8 @@ function DataTableViewOptions<TData>({
     <DropdownMenu>
       <DropdownMenuTrigger
         className={cn(
-          "inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-md border border-border bg-muted px-3 text-sm tracking-wide text-foreground transition-colors duration-200 ease-out hover:bg-accent hover:text-accent-foreground aria-expanded:bg-accent",
+          buttonVariants({ variant: "outline" }),
+          "bg-muted aria-expanded:bg-accent",
           className,
         )}
       >

@@ -1,0 +1,17 @@
+{
+  "name": "stats-03",
+  "type": "registry:block",
+  "title": "stats-03",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/stats/stats-03.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/stats/stats-03.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\n\ntype Stats03Props = {\n  className?: string;\n};\n\nconst STATS = [\n  {\n    value: \"12k+\",\n    label: \"Pages shipped\",\n    description: \"Teams reuse the same blocks across marketing and product.\",\n  },\n  {\n    value: \"4.9\",\n    label: \"Average rating\",\n    description: \"Clean defaults that still feel custom once themed.\",\n  },\n  {\n    value: \"30s\",\n    label: \"Install time\",\n    description: \"Add a block with the CLI and wire it into a route.\",\n  },\n  {\n    value: \"0\",\n    label: \"Design debt\",\n    description: \"One token system for light, dark, and everything between.\",\n  },\n] as const;\n\nexport function Stats03({ className }: Stats03Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto w-full max-w-4xl px-4 py-10 @[32rem]:px-6 @[32rem]:py-14\">\n        <ul className=\"grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border @[32rem]:grid-cols-2\">\n          {STATS.map((stat) => (\n            <li\n              key={stat.label}\n              className=\"bg-background px-5 py-6 @[32rem]:px-6 @[32rem]:py-8\"\n            >\n              <p className=\"text-3xl font-medium tracking-tight text-foreground\">\n                {stat.value}\n              </p>\n              <p className=\"mt-2 text-sm font-medium tracking-wide text-foreground\">\n                {stat.label}\n              </p>\n              <p className=\"mt-1.5 max-w-xs text-sm tracking-wide text-muted-foreground\">\n                {stat.description}\n              </p>\n            </li>\n          ))}\n        </ul>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

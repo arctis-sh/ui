@@ -1,0 +1,18 @@
+{
+  "name": "hero-04",
+  "type": "registry:block",
+  "title": "hero-04",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/hero/hero-04.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/hero/hero-04.tsx",
+      "content": "\"use client\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\ntype Hero04Props = {\n  className?: string;\n};\n\nexport function Hero04({ className }: Hero04Props) {\n  return (\n    <section className={cn(\"w-full bg-background\", className)}>\n      <div\n        data-slot=\"block-split\"\n        className=\"flex h-full min-h-[28rem] w-full flex-col gap-4 p-4 lg:flex-row lg:items-stretch lg:gap-6 lg:p-6\"\n      >\n        <div className=\"flex flex-1 flex-col items-start justify-center py-6 text-left lg:py-10\">\n          <h1 className=\"max-w-md text-balance text-2xl font-medium tracking-wide text-foreground lg:text-3xl\">\n            Ship interfaces that feel finished\n          </h1>\n          <p className=\"mt-3 max-w-sm text-pretty text-sm tracking-wide text-muted-foreground\">\n            Ready made blocks you can restyle with your tokens.\n          </p>\n          <Button type=\"button\" size=\"sm\" className=\"mt-6\">\n            Get started\n          </Button>\n        </div>\n        <div className=\"relative min-h-[16rem] w-full flex-1 overflow-hidden rounded-md lg:min-h-0\">\n          <img\n            src=\"/assets/brand/demos/card-cover.png\"\n            alt=\"\"\n            className=\"absolute inset-0 size-full object-cover\"\n          />\n        </div>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

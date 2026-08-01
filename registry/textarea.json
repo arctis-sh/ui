@@ -1,0 +1,17 @@
+{
+  "name": "textarea",
+  "type": "registry:ui",
+  "title": "Textarea",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/textarea.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/textarea.tsx",
+      "content": "\"use client\";\r\n\r\nimport type { TextareaHTMLAttributes } from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ntype TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement>;\r\n\r\nexport function Textarea({ className, ...props }: TextareaProps) {\r\n  return (\r\n    <textarea\r\n      className={cn(\r\n        \"flex min-h-16 w-full rounded-md border border-input bg-surface px-3 py-2 text-sm tracking-wide transition-colors duration-200 ease-out outline-none placeholder:text-muted-foreground disabled:pointer-events-none disabled:opacity-40\",\r\n        \"aria-invalid:border-destructive aria-invalid:bg-destructive/5\",\r\n        className,\r\n      )}\r\n      data-slot=\"textarea\"\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n"
+    }
+  ]
+}

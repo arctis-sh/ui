@@ -1,0 +1,17 @@
+{
+  "name": "team-03",
+  "type": "registry:block",
+  "title": "team-03",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/team/team-03.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/team/team-03.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\n\ntype Team03Props = {\n  className?: string;\n};\n\nconst MEMBERS = [\n  {\n    name: \"Maya Chen\",\n    role: \"CEO & Co-founder\",\n    avatar: \"/assets/brand/demos/avatars/avatar-1.png\",\n  },\n  {\n    name: \"Jordan Hale\",\n    role: \"Head of Design\",\n    avatar: \"/assets/brand/demos/avatars/avatar-2.png\",\n  },\n  {\n    name: \"Priya Nair\",\n    role: \"Eng Manager\",\n    avatar: \"/assets/brand/demos/avatars/avatar-3.png\",\n  },\n] as const;\n\nexport function Team03({ className }: Team03Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto w-full max-w-4xl px-4 py-10 @[32rem]:px-6 @[32rem]:py-14\">\n        <div className=\"mx-auto max-w-md text-center\">\n          <h2 className=\"text-xl font-medium tracking-wide text-foreground @[32rem]:text-2xl\">\n            Leadership\n          </h2>\n          <p className=\"mt-2 text-sm tracking-wide text-muted-foreground\">\n            The people setting direction for product, design, and engineering.\n          </p>\n        </div>\n        <ul className=\"mt-8 grid grid-cols-1 gap-4 @[40rem]:grid-cols-3\">\n          {MEMBERS.map((member) => (\n            <li key={member.name} className=\"group relative aspect-[3/4] overflow-hidden rounded-xl bg-muted\">\n              <img\n                src={member.avatar}\n                alt=\"\"\n                className=\"absolute inset-0 size-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]\"\n              />\n              <div className=\"absolute inset-x-0 bottom-0 translate-y-0 p-3 transition-transform duration-300 ease-out [@media(hover:hover)]:translate-y-full [@media(hover:hover)]:group-hover:translate-y-0\">\n                <div className=\"rounded-lg bg-background/70 px-3 py-2.5 backdrop-blur-md\">\n                  <p className=\"text-sm font-medium tracking-wide text-foreground\">\n                    {member.name}\n                  </p>\n                  <p className=\"mt-0.5 text-xs tracking-wide text-muted-foreground\">\n                    {member.role}\n                  </p>\n                </div>\n              </div>\n            </li>\n          ))}\n        </ul>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

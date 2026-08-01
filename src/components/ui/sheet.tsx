@@ -17,6 +17,7 @@ import {
   type ReactNode,
 } from "react";
 import { createPortal } from "react-dom";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useBodyScrollLock } from "@/lib/use-body-scroll-lock";
 
@@ -261,15 +262,17 @@ export function SheetContent({
       >
         {children}
         {showCloseButton ? (
-          <button
+          <Button
             type="button"
+            variant="ghost"
+            size="icon-sm"
             data-slot="sheet-close"
             aria-label="Close"
-            className="absolute top-3 right-3 inline-flex size-7 items-center justify-center rounded-md text-muted-foreground transition-colors duration-200 ease-out hover:bg-accent hover:text-foreground"
+            className="absolute top-3 right-3 text-muted-foreground hover:text-foreground"
             onClick={() => setOpen(false)}
           >
             <XIcon className="size-4" />
-          </button>
+          </Button>
         ) : null}
       </div>
     </div>,

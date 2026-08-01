@@ -1,0 +1,17 @@
+{
+  "name": "testimonials-03",
+  "type": "registry:block",
+  "title": "testimonials-03",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/testimonials/testimonials-03.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/testimonials/testimonials-03.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\n\ntype Testimonials03Props = {\n  className?: string;\n};\n\nconst TESTIMONIALS = [\n  {\n    quote: \"Shipped our launch site in a day.\",\n    name: \"Maya Chen\",\n    role: \"Northline\",\n    avatar: \"/assets/brand/demos/avatars/avatar-1.png\",\n  },\n  {\n    quote: \"Finally blocks that match our tokens.\",\n    name: \"Jordan Hale\",\n    role: \"Relay\",\n    avatar: \"/assets/brand/demos/avatars/avatar-2.png\",\n  },\n  {\n    quote: \"CLI install, drop in, done.\",\n    name: \"Priya Nair\",\n    role: \"Cove\",\n    avatar: \"/assets/brand/demos/avatars/avatar-3.png\",\n  },\n  {\n    quote: \"Dark mode without the cleanup pass.\",\n    name: \"Chris Ortega\",\n    role: \"Stackwell\",\n    avatar: \"/assets/brand/demos/avatars/avatar-4.png\",\n  },\n  {\n    quote: \"Looks custom without the custom bill.\",\n    name: \"Sam Okonkwo\",\n    role: \"Fieldkit\",\n    avatar: \"/assets/brand/demos/avatars/avatar-5.png\",\n  },\n] as const;\n\nfunction QuoteCard({\n  quote,\n  name,\n  role,\n  avatar,\n}: (typeof TESTIMONIALS)[number]) {\n  return (\n    <figure className=\"flex w-[18rem] shrink-0 flex-col justify-between rounded-xl border border-border bg-background p-5\">\n      <blockquote className=\"text-sm tracking-wide text-foreground\">\n        “{quote}”\n      </blockquote>\n      <figcaption className=\"mt-5 flex items-center gap-3\">\n        <img\n          src={avatar}\n          alt=\"\"\n          className=\"size-8 shrink-0 rounded-full object-cover\"\n        />\n        <div className=\"min-w-0\">\n          <p className=\"truncate text-sm font-medium tracking-wide text-foreground\">\n            {name}\n          </p>\n          <p className=\"truncate text-xs tracking-wide text-muted-foreground\">\n            {role}\n          </p>\n        </div>\n      </figcaption>\n    </figure>\n  );\n}\n\nexport function Testimonials03({ className }: Testimonials03Props) {\n  const track = [...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS];\n\n  return (\n    <section className={cn(\"w-full overflow-hidden bg-background\", className)}>\n      <style>{`\n        @keyframes testimonials-03-scroll {\n          from { transform: translateX(0); }\n          to { transform: translateX(-33.333%); }\n        }\n      `}</style>\n      <div className=\"flex w-full flex-col gap-5 py-10\">\n        <p className=\"px-6 text-left text-xs tracking-wide text-muted-foreground\">\n          What teams say after they ship\n        </p>\n        <div className=\"w-full overflow-hidden\" aria-hidden=\"true\">\n          <div\n            className=\"flex w-max gap-3 pr-3\"\n            style={{ animation: \"testimonials-03-scroll 40s linear infinite\" }}\n          >\n            {track.map((item, i) => (\n              <QuoteCard key={`${item.name}-${i}`} {...item} />\n            ))}\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

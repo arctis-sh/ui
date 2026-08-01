@@ -1,0 +1,17 @@
+{
+  "name": "switch",
+  "type": "registry:ui",
+  "title": "Switch",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/switch.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/switch.tsx",
+      "content": "\"use client\";\r\n\r\nimport {\r\n  useId,\r\n  useState,\r\n  type ButtonHTMLAttributes,\r\n  type MouseEvent,\r\n} from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ntype SwitchSize = \"default\" | \"sm\";\r\ntype SwitchRadius = \"none\" | \"default\" | \"full\";\r\n\r\ntype SwitchProps = Omit<\r\n  ButtonHTMLAttributes<HTMLButtonElement>,\r\n  \"onChange\" | \"value\" | \"children\"\r\n> & {\r\n  checked?: boolean;\r\n  defaultChecked?: boolean;\r\n  onCheckedChange?: (checked: boolean) => void;\r\n  size?: SwitchSize;\r\n  radius?: SwitchRadius;\r\n};\r\n\r\nconst trackRadiusClass: Record<SwitchRadius, string> = {\r\n  none: \"rounded-none\",\r\n  default: \"rounded-md\",\r\n  full: \"rounded-full\",\r\n};\r\n\r\nconst thumbRadiusClass: Record<SwitchRadius, string> = {\r\n  none: \"rounded-none\",\r\n  default: \"rounded-[calc(var(--radius-md)-0.125rem)]\",\r\n  full: \"rounded-full\",\r\n};\r\n\r\nexport function Switch({\r\n  checked,\r\n  defaultChecked = false,\r\n  onCheckedChange,\r\n  size = \"default\",\r\n  radius = \"default\",\r\n  disabled,\r\n  className,\r\n  id,\r\n  onClick,\r\n  ...props\r\n}: SwitchProps) {\r\n  const generatedId = useId();\r\n  const inputId = id ?? generatedId;\r\n  const controlled = checked !== undefined;\r\n  const [uncontrolled, setUncontrolled] = useState(defaultChecked);\r\n  const isChecked = controlled ? checked : uncontrolled;\r\n\r\n  function toggle() {\r\n    if (disabled) return;\r\n    const next = !isChecked;\r\n    if (!controlled) setUncontrolled(next);\r\n    onCheckedChange?.(next);\r\n  }\r\n\r\n  function handleClick(event: MouseEvent<HTMLButtonElement>) {\r\n    onClick?.(event);\r\n    if (!event.defaultPrevented) toggle();\r\n  }\r\n\r\n  return (\r\n    <button\r\n      type=\"button\"\r\n      {...props}\r\n      role=\"switch\"\r\n      id={inputId}\r\n      data-slot=\"switch\"\r\n      data-size={size}\r\n      data-radius={radius}\r\n      data-state={isChecked ? \"checked\" : \"unchecked\"}\r\n      aria-checked={isChecked}\r\n      disabled={disabled}\r\n      className={cn(\r\n        \"group/switch peer inline-flex shrink-0 items-center border border-transparent p-0.5 transition-colors duration-200 ease-out\",\r\n        \"disabled:pointer-events-none disabled:opacity-40\",\r\n        \"data-[state=checked]:bg-primary data-[state=unchecked]:bg-input\",\r\n        \"aria-invalid:border-destructive aria-invalid:bg-destructive/5\",\r\n        trackRadiusClass[radius],\r\n        size === \"default\" && \"h-5 w-9\",\r\n        size === \"sm\" && \"h-4 w-7\",\r\n        className,\r\n      )}\r\n      onClick={handleClick}\r\n    >\r\n      <span\r\n        data-slot=\"switch-thumb\"\r\n        className={cn(\r\n          \"pointer-events-none block bg-background transition-transform duration-200 ease-out group-data-[state=checked]/switch:bg-primary-foreground\",\r\n          thumbRadiusClass[radius],\r\n          size === \"default\" &&\r\n            \"size-3.5 translate-x-0 group-data-[state=checked]/switch:translate-x-4\",\r\n          size === \"sm\" &&\r\n            \"size-2.5 translate-x-0 group-data-[state=checked]/switch:translate-x-3\",\r\n        )}\r\n      />\r\n    </button>\r\n  );\r\n}\r\n"
+    }
+  ]
+}

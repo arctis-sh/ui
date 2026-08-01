@@ -1,0 +1,17 @@
+{
+  "name": "banner-02",
+  "type": "registry:block",
+  "title": "banner-02",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/banner/banner-02.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/banner/banner-02.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { Button } from \"@/components/ui/button\";\n\nfunction CloseIcon({ className }: { className?: string }) {\n  return (\n    <svg\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      aria-hidden=\"true\"\n      className={className}\n    >\n      <path\n        d=\"M6 6l12 12M18 6L6 18\"\n        stroke=\"currentColor\"\n        strokeWidth=\"1.5\"\n        strokeLinecap=\"round\"\n      />\n    </svg>\n  );\n}\n\nexport function Banner02() {\n  const [open, setOpen] = useState(true);\n\n  if (!open) return null;\n\n  return (\n    <div className=\"flex w-full flex-col gap-3 rounded-md bg-muted px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4\">\n      <div className=\"min-w-0\">\n        <p className=\"text-sm tracking-wide text-foreground\">\n          Shipping updates for all regions\n        </p>\n        <p className=\"mt-0.5 text-xs tracking-wide text-muted-foreground\">\n          Check the changelog before you ship so nothing slips through.\n        </p>\n      </div>\n      <Button\n        type=\"button\"\n        size=\"icon-sm\"\n        variant=\"ghost\"\n        aria-label=\"Dismiss\"\n        className=\"shrink-0 self-start sm:self-auto\"\n        onClick={() => setOpen(false)}\n      >\n        <CloseIcon />\n      </Button>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

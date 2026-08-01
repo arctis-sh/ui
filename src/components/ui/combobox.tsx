@@ -14,6 +14,8 @@ import {
   type InputHTMLAttributes,
   type ReactNode,
 } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useBodyScrollLock } from "@/lib/use-body-scroll-lock";
 
@@ -544,17 +546,19 @@ export function ComboboxInput({
       {canClear || showIcon ? (
         <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center gap-1">
           {canClear ? (
-            <button
+            <Button
               type="button"
+              variant="ghost"
+              size="icon-xs"
               tabIndex={-1}
               data-slot="combobox-clear"
-              className="pointer-events-auto inline-flex size-6 items-center justify-center rounded-md text-muted-foreground transition-colors duration-200 ease-out hover:bg-accent hover:text-accent-foreground"
+              className="pointer-events-auto text-muted-foreground"
               onMouseDown={(event) => event.preventDefault()}
               onClick={() => clear()}
               aria-label="Clear"
             >
               <XIcon className="size-3.5" />
-            </button>
+            </Button>
           ) : null}
           {showIcon ? (
             <ChevronsUpDownIcon className="size-3.5 text-muted-foreground" />
@@ -873,29 +877,29 @@ export function ComboboxChip({
   const { remove, disabled } = useCombobox();
 
   return (
-    <span
+    <Badge
+      variant="secondary"
       data-slot="combobox-chip"
-      className={cn(
-        "inline-flex h-5 max-w-full items-center gap-0.5 rounded-[calc(var(--radius-md)-0.375rem)] bg-secondary py-0 pl-1.5 pr-0.5 text-[11px] font-medium tracking-wide text-secondary-foreground",
-        className,
-      )}
+      className={cn("max-w-full gap-0.5 py-0 pr-0.5 pl-1.5", className)}
       {...props}
     >
       <span className="truncate">{children}</span>
-      <button
+      <Button
         type="button"
+        variant="ghost"
+        size="icon-xs"
         tabIndex={-1}
         disabled={disabled}
         aria-label={`Remove ${typeof children === "string" ? children : value}`}
-        className="inline-flex size-4 shrink-0 items-center justify-center rounded-sm text-muted-foreground transition-colors duration-200 ease-out hover:bg-accent hover:text-accent-foreground"
+        className="size-4 shrink-0 text-muted-foreground [&_svg]:size-2.5"
         onClick={(event) => {
           event.stopPropagation();
           remove(value);
         }}
       >
         <XIcon className="size-2.5" />
-      </button>
-    </span>
+      </Button>
+    </Badge>
   );
 }
 

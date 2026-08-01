@@ -1,0 +1,17 @@
+{
+  "name": "aspect-ratio",
+  "type": "registry:ui",
+  "title": "Aspect Ratio",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/aspect-ratio.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/aspect-ratio.tsx",
+      "content": "import type { HTMLAttributes, ReactNode } from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ntype AspectRatioProps = HTMLAttributes<HTMLDivElement> & {\r\n  ratio?: number;\r\n  children?: ReactNode;\r\n};\r\n\r\nexport function AspectRatio({\r\n  ratio = 1,\r\n  className,\r\n  children,\r\n  style,\r\n  ...props\r\n}: AspectRatioProps) {\r\n  return (\r\n    <div\r\n      className={cn(\"relative overflow-hidden\", className)}\r\n      style={{ aspectRatio: ratio, ...style }}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </div>\r\n  );\r\n}\r\n"
+    }
+  ]
+}

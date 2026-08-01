@@ -1,0 +1,17 @@
+{
+  "name": "label",
+  "type": "registry:ui",
+  "title": "Label",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/label.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/label.tsx",
+      "content": "import type { ComponentProps } from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nfunction Label({ className, ...props }: ComponentProps<\"label\">) {\r\n  return (\r\n    <label\r\n      data-slot=\"label\"\r\n      className={cn(\r\n        \"flex items-center gap-2 text-sm leading-none font-medium tracking-wide select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport { Label };\r\n"
+    }
+  ]
+}

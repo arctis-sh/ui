@@ -1,0 +1,18 @@
+{
+  "name": "hero-03",
+  "type": "registry:block",
+  "title": "hero-03",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/hero/hero-03.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/hero/hero-03.tsx",
+      "content": "\"use client\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\ntype Hero03Props = {\n  className?: string;\n};\n\nexport function Hero03({ className }: Hero03Props) {\n  return (\n    <section\n      className={cn(\"@container w-full bg-background p-3 sm:p-4\", className)}\n    >\n      <div className=\"relative min-h-[28rem] w-full flex-1 overflow-hidden rounded-md\">\n        <img\n          src=\"/assets/brand/demos/card-cover.png\"\n          alt=\"\"\n          className=\"absolute inset-0 size-full object-cover\"\n        />\n        <div\n          aria-hidden=\"true\"\n          className=\"absolute inset-0 bg-black/45\"\n        />\n        <div className=\"absolute inset-0 z-10 flex flex-col items-start justify-end p-6 text-left sm:p-8\">\n          <h1 className=\"max-w-xl text-balance text-2xl font-medium tracking-wide text-white @[32rem]:text-3xl\">\n            Ship interfaces that feel finished\n          </h1>\n          <p className=\"mt-3 max-w-md text-pretty text-sm tracking-wide text-white/75\">\n            Ready made blocks you can restyle with your tokens.\n          </p>\n          <Button type=\"button\" size=\"sm\" className=\"mt-6\">\n            Get started\n          </Button>\n        </div>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "footer-01",
+  "type": "registry:block",
+  "title": "footer-01",
+  "dependencies": [],
+  "registryDependencies": [
+    "logo",
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/footer/footer-01.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/footer/footer-01.tsx",
+      "content": "\"use client\";\n\nimport { Logo } from \"@/components/brand\";\nimport { cn } from \"@/lib/utils\";\n\ntype Footer01Props = {\n  className?: string;\n};\n\nconst COLUMNS = [\n  {\n    title: \"Product\",\n    links: [\"Blocks\", \"Components\", \"Changelog\", \"Pricing\"],\n  },\n  {\n    title: \"Company\",\n    links: [\"About\", \"Blog\", \"Careers\", \"Contact\"],\n  },\n  {\n    title: \"Resources\",\n    links: [\"Docs\", \"Guides\", \"Support\", \"Status\"],\n  },\n] as const;\n\nexport function Footer01({ className }: Footer01Props) {\n  return (\n    <footer className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto w-full max-w-5xl px-4 py-10 @[32rem]:px-6 @[32rem]:py-14\">\n        <div className=\"flex flex-col gap-10 @[40rem]:flex-row @[40rem]:justify-between\">\n          <div className=\"max-w-xs\">\n            <Logo className=\"block h-4 w-auto text-foreground\" />\n            <p className=\"mt-4 text-sm tracking-wide text-muted-foreground\">\n              UI blocks and components for shipping polished product surfaces.\n            </p>\n          </div>\n\n          <div className=\"grid grid-cols-2 gap-8 @[32rem]:grid-cols-3 @[40rem]:gap-12\">\n            {COLUMNS.map((column) => (\n              <div key={column.title}>\n                <p className=\"text-sm font-medium tracking-wide text-foreground\">\n                  {column.title}\n                </p>\n                <ul className=\"mt-3 flex flex-col gap-2\">\n                  {column.links.map((link) => (\n                    <li key={link}>\n                      <a\n                        href=\"#\"\n                        className=\"text-sm tracking-wide text-muted-foreground\"\n                      >\n                        {link}\n                      </a>\n                    </li>\n                  ))}\n                </ul>\n              </div>\n            ))}\n          </div>\n        </div>\n\n        <div className=\"mt-10 flex flex-col gap-2 border-t border-border pt-6 @[32rem]:flex-row @[32rem]:items-center @[32rem]:justify-between\">\n          <p className=\"text-xs tracking-wide text-muted-foreground\">\n            © 2026 Arctis. All rights reserved.\n          </p>\n          <div className=\"flex flex-wrap gap-4\">\n            <a href=\"#\" className=\"text-xs tracking-wide text-muted-foreground\">\n              Privacy\n            </a>\n            <a href=\"#\" className=\"text-xs tracking-wide text-muted-foreground\">\n              Terms\n            </a>\n          </div>\n        </div>\n      </div>\n    </footer>\n  );\n}\n"
+    }
+  ]
+}

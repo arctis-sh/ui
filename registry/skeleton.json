@@ -1,0 +1,17 @@
+{
+  "name": "skeleton",
+  "type": "registry:ui",
+  "title": "Skeleton",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/skeleton.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/skeleton.tsx",
+      "content": "import type { ComponentProps } from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nexport function Skeleton({ className, ...props }: ComponentProps<\"div\">) {\r\n  return (\r\n    <div\r\n      data-slot=\"skeleton\"\r\n      className={cn(\"arctis-skeleton rounded-md\", className)}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n"
+    }
+  ]
+}

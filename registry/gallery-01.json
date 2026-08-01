@@ -1,0 +1,17 @@
+{
+  "name": "gallery-01",
+  "type": "registry:block",
+  "title": "gallery-01",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/gallery/gallery-01.tsx",
+      "type": "registry:block",
+      "target": "components/blocks/gallery/gallery-01.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\n\ntype Gallery01Props = {\n  className?: string;\n};\n\nconst IMAGES = [\n  \"/assets/brand/demos/attachments/attachment-1.png\",\n  \"/assets/brand/demos/attachments/attachment-2.png\",\n  \"/assets/brand/demos/attachments/attachment-3.png\",\n  \"/assets/brand/demos/attachments/attachment-4.png\",\n  \"/assets/brand/demos/attachments/attachment-5.png\",\n  \"/assets/brand/demos/attachments/attachment-1.png\",\n] as const;\n\nexport function Gallery01({ className }: Gallery01Props) {\n  return (\n    <section className={cn(\"@container w-full bg-background\", className)}>\n      <div className=\"mx-auto w-full max-w-4xl px-4 py-10 @[32rem]:px-6 @[32rem]:py-14\">\n        <div className=\"mx-auto max-w-md text-center\">\n          <h2 className=\"text-xl font-medium tracking-wide text-foreground @[32rem]:text-2xl\">\n            Gallery\n          </h2>\n          <p className=\"mt-2 text-sm tracking-wide text-muted-foreground\">\n            A simple grid of images — swap in your own shots.\n          </p>\n        </div>\n        <ul className=\"mt-8 grid grid-cols-2 gap-2 @[40rem]:grid-cols-3 @[40rem]:gap-3\">\n          {IMAGES.map((src, index) => (\n            <li\n              key={`${src}-${index}`}\n              className=\"aspect-square overflow-hidden rounded-xl bg-muted\"\n            >\n              <img src={src} alt=\"\" className=\"size-full object-cover\" />\n            </li>\n          ))}\n        </ul>\n      </div>\n    </section>\n  );\n}\n"
+    }
+  ]
+}

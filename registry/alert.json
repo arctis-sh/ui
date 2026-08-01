@@ -1,0 +1,17 @@
+{
+  "name": "alert",
+  "type": "registry:ui",
+  "title": "Alert",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "components/ui/alert.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/alert.tsx",
+      "content": "import type { HTMLAttributes, ReactNode } from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ntype AlertVariant = \"default\" | \"success\" | \"warning\" | \"destructive\";\r\n\r\ntype AlertProps = HTMLAttributes<HTMLDivElement> & {\r\n  variant?: AlertVariant;\r\n  children: ReactNode;\r\n};\r\n\r\nconst variantClass: Record<AlertVariant, string> = {\r\n  default: \"border-border bg-card text-card-foreground\",\r\n  success:\r\n    \"border-success/25 bg-success/5 text-success\",\r\n  warning:\r\n    \"border-warning/25 bg-warning/5 text-warning\",\r\n  destructive:\r\n    \"border-destructive/25 bg-destructive/5 text-destructive\",\r\n};\r\n\r\nexport function Alert({\r\n  variant = \"default\",\r\n  className,\r\n  children,\r\n  ...props\r\n}: AlertProps) {\r\n  return (\r\n    <div\r\n      role=\"alert\"\r\n      data-variant={variant}\r\n      className={cn(\r\n        \"relative grid w-full grid-cols-[0_1fr] items-start gap-y-1 rounded-lg border px-4 py-3 text-sm has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-3 [&>svg]:col-start-1 [&>svg]:row-span-2 [&>svg]:row-start-1 [&>svg]:mt-0.5 [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:translate-y-px [&>svg]:text-current\",\r\n        variantClass[variant],\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </div>\r\n  );\r\n}\r\n\r\ntype AlertTitleProps = HTMLAttributes<HTMLDivElement> & {\r\n  children: ReactNode;\r\n};\r\n\r\nexport function AlertTitle({ className, children, ...props }: AlertTitleProps) {\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </div>\r\n  );\r\n}\r\n\r\ntype AlertDescriptionProps = HTMLAttributes<HTMLDivElement> & {\r\n  children: ReactNode;\r\n};\r\n\r\nexport function AlertDescription({\r\n  className,\r\n  children,\r\n  ...props\r\n}: AlertDescriptionProps) {\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"col-start-2 grid justify-items-start gap-1 text-sm text-current/70 [&_p]:leading-relaxed\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </div>\r\n  );\r\n}\r\n\r\ntype AlertActionProps = HTMLAttributes<HTMLDivElement> & {\r\n  children: ReactNode;\r\n};\r\n\r\nexport function AlertAction({ className, children, ...props }: AlertActionProps) {\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"absolute top-2.5 right-3 flex items-center gap-1\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </div>\r\n  );\r\n}\r\n"
+    }
+  ]
+}
