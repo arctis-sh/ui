@@ -11,6 +11,7 @@ import {
   useRef,
   useState,
   type ButtonHTMLAttributes,
+  type ComponentProps,
   type HTMLAttributes,
   type InputHTMLAttributes,
   type ReactNode,
@@ -623,14 +624,13 @@ export function CommandDialog({
   );
 }
 
-type CommandDialogTriggerProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  children: ReactNode;
-};
+type CommandDialogTriggerProps = ComponentProps<typeof Button>;
 
 export function CommandDialogTrigger({
   className,
   children,
   onClick,
+  size = "sm",
   ...props
 }: CommandDialogTriggerProps) {
   const { setOpen } = useCommandDialog();
@@ -638,7 +638,7 @@ export function CommandDialogTrigger({
   return (
     <Button
       type="button"
-      size="sm"
+      size={size}
       data-slot="command-dialog-trigger"
       className={className}
       onClick={(event) => {

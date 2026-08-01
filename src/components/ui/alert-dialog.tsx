@@ -8,7 +8,7 @@ import {
   useId,
   useMemo,
   useState,
-  type ButtonHTMLAttributes,
+  type ComponentProps,
   type HTMLAttributes,
   type ReactNode,
 } from "react";
@@ -74,14 +74,13 @@ export function AlertDialog({
   );
 }
 
-type AlertDialogTriggerProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  children: ReactNode;
-};
+type AlertDialogTriggerProps = ComponentProps<typeof Button>;
 
 export function AlertDialogTrigger({
   className,
   children,
   onClick,
+  size = "sm",
   ...props
 }: AlertDialogTriggerProps) {
   const { setOpen } = useAlertDialog();
@@ -89,7 +88,7 @@ export function AlertDialogTrigger({
   return (
     <Button
       type="button"
-      size="sm"
+      size={size}
       className={className}
       onClick={(event) => {
         onClick?.(event);
@@ -286,14 +285,14 @@ export function AlertDialogFooter({
   );
 }
 
-type AlertDialogCancelProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  children: ReactNode;
-};
+type AlertDialogCancelProps = ComponentProps<typeof Button>;
 
 export function AlertDialogCancel({
   className,
   children,
   onClick,
+  variant = "secondary",
+  size = "sm",
   ...props
 }: AlertDialogCancelProps) {
   const { setOpen } = useAlertDialog();
@@ -301,8 +300,8 @@ export function AlertDialogCancel({
   return (
     <Button
       type="button"
-      variant="secondary"
-      size="sm"
+      variant={variant}
+      size={size}
       className={className}
       onClick={(event) => {
         onClick?.(event);
@@ -315,16 +314,14 @@ export function AlertDialogCancel({
   );
 }
 
-type AlertDialogActionProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: "default" | "destructive";
-  children: ReactNode;
-};
+type AlertDialogActionProps = ComponentProps<typeof Button>;
 
 export function AlertDialogAction({
   variant = "default",
   className,
   children,
   onClick,
+  size = "sm",
   ...props
 }: AlertDialogActionProps) {
   const { setOpen } = useAlertDialog();
@@ -333,7 +330,7 @@ export function AlertDialogAction({
     <Button
       type="button"
       variant={variant}
-      size="sm"
+      size={size}
       className={className}
       onClick={(event) => {
         onClick?.(event);
