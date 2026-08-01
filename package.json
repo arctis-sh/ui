@@ -1,6 +1,6 @@
 {
   "name": "@arctis-sh/ui",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A starting point for your design system",
   "license": "MIT",
   "type": "module",
