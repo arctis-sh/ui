@@ -2,7 +2,7 @@
 
 A starting point for your design system.
 
-React components for Arctis. Docs: [ui.arctis](https://github.com/arctisv/ui.arctis) · Source: [arctis-sh/ui](https://github.com/arctis-sh/ui)
+React components for Arctis. Docs: [ui.arctis](https://ui.arctis.sh/docs) · Source: [arctis-sh/ui](https://github.com/arctis-sh/ui)
 
 ## Add (recommended)
 
